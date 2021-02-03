@@ -1,3 +1,3 @@
-[submodule "Gold/Training/StarLeague"]
-	path = Gold/Training/StarLeague
+[submodule "Gold/Training/Starleague"]
+	path = Gold/Training/Starleague
 	url = https://github.com/asubramanian08/StarLeague
