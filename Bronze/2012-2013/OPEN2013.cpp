@@ -1,3 +1,5 @@
+//Also in alpha star day 5 q1
+
 #include <stdio.h>
 #include <stdlib.h>
 //#include <math.h>
@@ -10,10 +12,10 @@
 //#include <assert.h>
 //_CRT_SECURE_NO_WARNINGS;
 #define getNum getNumInFile(&fp)
-char* readStrInFile(FILE** fp, int size, int* endSize)
+char *readStrInFile(FILE **fp, int size, int *endSize)
 {
 	char ch = fgetc(*fp);
-	char* str = (char*)malloc(sizeof(char) * (size + 1));
+	char *str = (char *)malloc(sizeof(char) * (size + 1));
 	int i = 0;
 	while ((ch != ' ') && (ch != '\n'))
 	{
@@ -23,10 +25,10 @@ char* readStrInFile(FILE** fp, int size, int* endSize)
 	}
 	str[i] = '\0';
 	*endSize = i + 1;
-	str = (char*)realloc(str, sizeof(char) * (i + 1));
+	str = (char *)realloc(str, sizeof(char) * (i + 1));
 	return str;
 }
-long long getNumInFile(FILE * *fp)
+long long getNumInFile(FILE **fp)
 {
 	char ch = fgetc(*fp);
 	if (ch == '-')
@@ -49,24 +51,25 @@ struct point
 	int x;
 	int y;
 };
-void q1(const char* fpIn, const char* fpOut)
+void q1(const char *fpIn, const char *fpOut)
 {
-	point legs[4] = { { 0, 0 }, //BL
-	{ 1, 0 }, //BR
-	{ 0, 1 }, //FL
-	{ 1, 1 } }; //FR
+	point legs[4] = {{0, 0},  //BL
+					 {1, 0},  //BR
+					 {0, 1},  //FL
+					 {1, 1}}; //FR
 	int highestX = 1, highestY = 1, lowestX = 0, lowestY = 0;
-	point dir = { 0, 1 };
+	point dir = {0, 1};
 	int currLeg;
-	FILE* fp = NULL;
+	FILE *fp = NULL;
 	fp = fopen(fpIn, "r");
 	unsigned int numOfMoves = getNum;
-	for (unsigned int i = 0; i < numOfMoves; i++) {
+	for (unsigned int i = 0; i < numOfMoves; i++)
+	{
 		currLeg = ((fgetc(fp) == 'F') * 2) + (fgetc(fp) == 'R');
 		switch (fgetc(fp))
 		{
 		case 'F':
-			legs[currLeg] = { legs[currLeg].x + dir.x, legs[currLeg].y + dir.y };
+			legs[currLeg] = {legs[currLeg].x + dir.x, legs[currLeg].y + dir.y};
 			if (legs[currLeg].x > highestX)
 				highestX = legs[currLeg].x;
 			else if (legs[currLeg].x < lowestX)
@@ -75,15 +78,17 @@ void q1(const char* fpIn, const char* fpOut)
 				highestY = legs[currLeg].y;
 			else if (legs[currLeg].y < lowestY)
 				lowestY = legs[currLeg].y;
-			for (unsigned int i = 0; i < 4; i++) {
-				if (((legs[currLeg].x == legs[i].x) && (legs[currLeg].y == legs[i].y)) && (currLeg != i)) {
+			for (unsigned int i = 0; i < 4; i++)
+			{
+				if (((legs[currLeg].x == legs[i].x) && (legs[currLeg].y == legs[i].y)) && (currLeg != i))
+				{
 					currLeg = -1;
 					break;
 				}
 			}
 			break;
 		case 'B':
-			legs[currLeg] = { legs[currLeg].x - dir.x, legs[currLeg].y - dir.y };
+			legs[currLeg] = {legs[currLeg].x - dir.x, legs[currLeg].y - dir.y};
 			if (legs[currLeg].x > highestX)
 				highestX = legs[currLeg].x;
 			else if (legs[currLeg].x < lowestX)
@@ -92,15 +97,17 @@ void q1(const char* fpIn, const char* fpOut)
 				highestY = legs[currLeg].y;
 			else if (legs[currLeg].y < lowestY)
 				lowestY = legs[currLeg].y;
-			for (unsigned int i = 0; i < 4; i++) {
-				if (((legs[currLeg].x == legs[i].x) && (legs[currLeg].y == legs[i].y)) && (currLeg != i)) {
+			for (unsigned int i = 0; i < 4; i++)
+			{
+				if (((legs[currLeg].x == legs[i].x) && (legs[currLeg].y == legs[i].y)) && (currLeg != i))
+				{
 					currLeg = -1;
 					break;
 				}
 			}
 			break;
 		case 'L':
-			legs[currLeg] = { legs[currLeg].x - dir.y, legs[currLeg].y + dir.x };
+			legs[currLeg] = {legs[currLeg].x - dir.y, legs[currLeg].y + dir.x};
 			if (legs[currLeg].x > highestX)
 				highestX = legs[currLeg].x;
 			else if (legs[currLeg].x < lowestX)
@@ -109,15 +116,17 @@ void q1(const char* fpIn, const char* fpOut)
 				highestY = legs[currLeg].y;
 			else if (legs[currLeg].y < lowestY)
 				lowestY = legs[currLeg].y;
-			for (unsigned int i = 0; i < 4; i++) {
-				if (((legs[currLeg].x == legs[i].x) && (legs[currLeg].y == legs[i].y)) && (currLeg != i)) {
+			for (unsigned int i = 0; i < 4; i++)
+			{
+				if (((legs[currLeg].x == legs[i].x) && (legs[currLeg].y == legs[i].y)) && (currLeg != i))
+				{
 					currLeg = -1;
 					break;
 				}
 			}
 			break;
 		case 'R':
-			legs[currLeg] = { legs[currLeg].x + dir.y, legs[currLeg].y - dir.x };
+			legs[currLeg] = {legs[currLeg].x + dir.y, legs[currLeg].y - dir.x};
 			if (legs[currLeg].x > highestX)
 				highestX = legs[currLeg].x;
 			else if (legs[currLeg].x < lowestX)
@@ -126,26 +135,29 @@ void q1(const char* fpIn, const char* fpOut)
 				highestY = legs[currLeg].y;
 			else if (legs[currLeg].y < lowestY)
 				lowestY = legs[currLeg].y;
-			for (unsigned int i = 0; i < 4; i++) {
-				if (((legs[currLeg].x == legs[i].x) && (legs[currLeg].y == legs[i].y)) && (currLeg != i)) {
+			for (unsigned int i = 0; i < 4; i++)
+			{
+				if (((legs[currLeg].x == legs[i].x) && (legs[currLeg].y == legs[i].y)) && (currLeg != i))
+				{
 					currLeg = -1;
 					break;
 				}
 			}
 			break;
 		default:
-			for (unsigned int i = 0; i < 4; i++) {
-				legs[i] = { legs[currLeg].x - (legs[currLeg].y - legs[i].y), legs[currLeg].y + (legs[currLeg].x - legs[i].x) };
+			for (unsigned int i = 0; i < 4; i++)
+			{
+				legs[i] = {legs[currLeg].x - (legs[currLeg].y - legs[i].y), legs[currLeg].y + (legs[currLeg].x - legs[i].x)};
 				if (legs[i].x > highestX)
 					highestX = legs[i].x;
 				else if (legs[i].x < lowestX)
 					lowestX = legs[i].x;
 				if (legs[i].y > highestY)
 					highestY = legs[i].y;
-				else if (legs[i].y< lowestY)
+				else if (legs[i].y < lowestY)
 					lowestY = legs[i].y;
 			}
-			dir = { dir.y, -dir.x };
+			dir = {dir.y, -dir.x};
 			break;
 		}
 		fgetc(fp); //get the '/n'
@@ -163,30 +175,32 @@ void q1(const char* fpIn, const char* fpOut)
 }
 
 //answer was told to me -> not my answer
-unsigned int getBianary(FILE** fp, unsigned int numOfLights)
+unsigned int getBianary(FILE **fp, unsigned int numOfLights)
 {
 	unsigned int total = 0;
-	for (unsigned int i = 0; i < numOfLights; i++) {
+	for (unsigned int i = 0; i < numOfLights; i++)
+	{
 		total = (total << 1) + (fgetc(*fp) - '0');
 		fgetc(*fp); //get rid of '\n'
 	}
 	return total;
 }
-void q2(const char* fpIn, const char* fpOut)
+void q2(const char *fpIn, const char *fpOut)
 {
-	FILE* fp = NULL;
+	FILE *fp = NULL;
 	fp = fopen(fpIn, "r");
 	unsigned int numOfLights = getNum;
 	unsigned long long timesToRepete = getNum;
 	unsigned int startLights = getBianary(&fp, numOfLights);
 	fclose(fp);
-	unsigned long* lightingCheaked = (unsigned long*)calloc(1 << numOfLights, sizeof(unsigned long));
+	unsigned long *lightingCheaked = (unsigned long *)calloc(1 << numOfLights, sizeof(unsigned long));
 	unsigned long timesDone = 0;
 	unsigned int currLights = startLights;
 	lightingCheaked[currLights] = 1;
 	unsigned int currLightNum;
 	unsigned int temp = 0;
-	do {
+	do
+	{
 		temp = currLights >> 1;
 		temp |= (currLights & 1) << (numOfLights - 1);
 		currLights ^= temp;
@@ -197,10 +211,12 @@ void q2(const char* fpIn, const char* fpOut)
 		else
 			lightingCheaked[currLights] = timesDone + 1;
 	} while (timesDone < timesToRepete);
-	if (timesDone != timesToRepete) {
+	if (timesDone != timesToRepete)
+	{
 		lightingCheaked[currLights]--;
 		timesToRepete = (timesToRepete - lightingCheaked[currLights]) % (timesDone - lightingCheaked[currLights]);
-		for (timesDone = 0; timesDone < timesToRepete; timesDone++) {
+		for (timesDone = 0; timesDone < timesToRepete; timesDone++)
+		{
 			temp = currLights >> 1;
 			temp |= currLights << (numOfLights - 1);
 			currLights ^= temp;
@@ -209,7 +225,8 @@ void q2(const char* fpIn, const char* fpOut)
 	}
 	fp = NULL;
 	fp = fopen(fpOut, "w");
-	for (int i = numOfLights - 1; i >= 0; i--) {
+	for (int i = numOfLights - 1; i >= 0; i--)
+	{
 		bool a = currLights & 1 << i;
 		fprintf(fp, "%d\n", a);
 	}
@@ -221,36 +238,39 @@ struct pair
 	unsigned int smaller;
 	unsigned int larger;
 };
-int compare(const void* a, const void* b)
+int compare(const void *a, const void *b)
 {
-	if (((pair*)a)->smaller == ((pair*)b)->smaller)
-		return ((pair*)a)->larger - ((pair*)b)->larger;
-	return ((pair*)a)->smaller - ((pair*)b)->smaller;
+	if (((pair *)a)->smaller == ((pair *)b)->smaller)
+		return ((pair *)a)->larger - ((pair *)b)->larger;
+	return ((pair *)a)->smaller - ((pair *)b)->smaller;
 }
-void q3(const char* fpIn, const char* fpOut)
+void q3(const char *fpIn, const char *fpOut)
 {
-	FILE* fp = NULL;
+	FILE *fp = NULL;
 	fp = fopen(fpIn, "r");
 	//unsigned long numOfCows = getNum;
 	getNum; //get rid on num of cows
 	unsigned long numOfPairs = getNum;
 	unsigned int smaller;
 	unsigned int larger;
-	pair* pairs = (pair*)malloc(sizeof(pair) * numOfPairs);
-	for (unsigned int i = 0; i < numOfPairs; i++) {
+	pair *pairs = (pair *)malloc(sizeof(pair) * numOfPairs);
+	for (unsigned int i = 0; i < numOfPairs; i++)
+	{
 		smaller = getNum;
 		larger = getNum;
-		if (smaller > larger) 
-			pairs[i] = { larger, smaller };
+		if (smaller > larger)
+			pairs[i] = {larger, smaller};
 		else
-			pairs[i] = { smaller, larger };
+			pairs[i] = {smaller, larger};
 	}
 	fclose(fp);
 	qsort(pairs, numOfPairs, sizeof(pair), compare);
 	unsigned int endingAt = 1;
 	unsigned int numOfPics = 0;
-	for (unsigned int currPair = 0; currPair < numOfPairs; currPair++) {
-		if (pairs[currPair].smaller >= endingAt) {
+	for (unsigned int currPair = 0; currPair < numOfPairs; currPair++)
+	{
+		if (pairs[currPair].smaller >= endingAt)
+		{
 			numOfPics++;
 			endingAt = pairs[currPair].larger;
 		}
@@ -305,49 +325,58 @@ struct cow
 }*/
 //solution pruning
 unsigned long allTimeSmallest = ~0;
-void recursive(unsigned int currPlace, unsigned int numOfCows, int* cowPos, cow* friends, unsigned long cost_soFar,
-	unsigned int pendingLinks, unsigned long pendingLink_cost)
+void recursive(unsigned int currPlace, unsigned int numOfCows, int *cowPos, cow *friends, unsigned long cost_soFar,
+			   unsigned int pendingLinks, unsigned long pendingLink_cost)
 {
-	if (numOfCows == currPlace) {
+	if (numOfCows == currPlace)
+	{
 		if (cost_soFar < allTimeSmallest)
 			allTimeSmallest = cost_soFar;
 		return;
 	}
 	if (cost_soFar + pendingLink_cost >= allTimeSmallest)
 		return;
-	unsigned long addedCost; int newPendingLinks;
-	for (unsigned int i = 0; i < numOfCows; i++) {
-		if (cowPos[i] == 0) {
+	unsigned long addedCost;
+	int newPendingLinks;
+	for (unsigned int i = 0; i < numOfCows; i++)
+	{
+		if (cowPos[i] == 0)
+		{
 			cowPos[i] = currPlace + 1;
-			addedCost = 0; newPendingLinks = 3;
-			if (cowPos[friends[i].friend1]) {
+			addedCost = 0;
+			newPendingLinks = 3;
+			if (cowPos[friends[i].friend1])
+			{
 				addedCost += currPlace - (cowPos[friends[i].friend1] - 1);
 				newPendingLinks -= 2;
 			}
-			if (cowPos[friends[i].friend2]) {
+			if (cowPos[friends[i].friend2])
+			{
 				addedCost += currPlace - (cowPos[friends[i].friend2] - 1);
 				newPendingLinks -= 2;
 			}
-			if (cowPos[friends[i].friend3]) {
+			if (cowPos[friends[i].friend3])
+			{
 				addedCost += currPlace - (cowPos[friends[i].friend3] - 1);
 				newPendingLinks -= 2;
 			}
 
 			recursive(currPlace + 1, numOfCows, cowPos, friends, cost_soFar + addedCost,
-				pendingLinks + newPendingLinks, pendingLink_cost + (pendingLinks + newPendingLinks) - addedCost);
+					  pendingLinks + newPendingLinks, pendingLink_cost + (pendingLinks + newPendingLinks) - addedCost);
 			cowPos[i] = 0;
 		}
 	}
 }
-void q4(const char* fpIn, const char* fpOut)
+void q4(const char *fpIn, const char *fpOut)
 {
-	FILE* fp = NULL;
+	FILE *fp = NULL;
 	fp = fopen(fpIn, "r");
 	unsigned int numOfCows = getNum;
 	//int* stables = (int*)malloc(numOfCows * sizeof(int));
-	int* cows = (int*)calloc(numOfCows, sizeof(int));
-	cow* friends = (cow*)malloc(sizeof(cow) * numOfCows);
-	for (unsigned int i = 0; i < numOfCows; i++) {
+	int *cows = (int *)calloc(numOfCows, sizeof(int));
+	cow *friends = (cow *)malloc(sizeof(cow) * numOfCows);
+	for (unsigned int i = 0; i < numOfCows; i++)
+	{
 		friends[i].friend1 = getNum - 1;
 		friends[i].friend2 = getNum - 1;
 		friends[i].friend3 = getNum - 1;
