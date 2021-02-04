@@ -1,0 +1,25 @@
+{
+	"files.associations": {
+		"*.java": "java",
+		"algorithm": "cpp",
+		"array": "cpp",
+		"bitset": "cpp",
+		"iterator": "cpp",
+		"memory": "cpp",
+		"ratio": "cpp",
+		"utility": "cpp",
+		"__tree": "cpp",
+		"set": "cpp",
+		"__node_handle": "cpp",
+		"cstdio": "cpp",
+		"string": "cpp",
+		"string_view": "cpp",
+		"ostream": "cpp",
+		"new": "cpp",
+		"filesystem": "cpp",
+		"iostream": "cpp"
+	},
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true
+}
