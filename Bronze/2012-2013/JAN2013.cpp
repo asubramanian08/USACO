@@ -1,3 +1,5 @@
+//Also alpha star day 1 number 1
+
 #include <stdio.h>
 #include <stdlib.h>
 //#include <math.h>
@@ -10,10 +12,10 @@
 //#include <assert.h>
 //_CRT_SECURE_NO_WARNINGS;
 
-char* readStrInFile(FILE** fp, int size, int* endSize)
+char *readStrInFile(FILE **fp, int size, int *endSize)
 {
 	char ch = fgetc(*fp);
-	char* str = (char*)malloc(sizeof(char) * (size + 1));
+	char *str = (char *)malloc(sizeof(char) * (size + 1));
 	int i = 0;
 	while ((ch != ' ') && (ch != '\n'))
 	{
@@ -23,10 +25,10 @@ char* readStrInFile(FILE** fp, int size, int* endSize)
 	}
 	str[i] = '\0';
 	*endSize = i + 1;
-	str = (char*)realloc(str, sizeof(char) * (i + 1));
+	str = (char *)realloc(str, sizeof(char) * (i + 1));
 	return str;
 }
-long long getNumInFile(FILE * *fp)
+long long getNumInFile(FILE **fp)
 {
 	char ch = fgetc(*fp);
 	if (ch == '-')
@@ -55,8 +57,8 @@ struct mirror
 {
 	char tilt_house;
 	point loc;
-	linkList* by_xLoc;
-	linkList* by_yLoc;
+	linkList *by_xLoc;
+	linkList *by_yLoc;
 	unsigned int orderNum;
 	bool important = 0;
 	bool vis;
@@ -64,43 +66,46 @@ struct mirror
 };
 struct linkList
 {
-	linkList* prev;
-	linkList* next;
+	linkList *prev;
+	linkList *next;
 	unsigned int mirrorOrderNum;
 };
-int compareByX(const void* p1, const void* p2)
+int compareByX(const void *p1, const void *p2)
 {
-	mirror* a = (mirror*)p1;
-	mirror* b = (mirror*)p2;
+	mirror *a = (mirror *)p1;
+	mirror *b = (mirror *)p2;
 	if (a->loc.x - b->loc.x)
 		return a->loc.x - b->loc.x;
 	return a->loc.y - b->loc.y;
 }
-int compareByY(const void* p1, const void* p2)
+int compareByY(const void *p1, const void *p2)
 {
-	mirror* a = (mirror*)p1;
-	mirror* b = (mirror*)p2;
+	mirror *a = (mirror *)p1;
+	mirror *b = (mirror *)p2;
 	if (a->loc.y - b->loc.y)
 		return a->loc.y - b->loc.y;
 	return a->loc.x - b->loc.x;
 }
-int compareByOrder(const void* p1, const void* p2)
+int compareByOrder(const void *p1, const void *p2)
 {
-	mirror* a = (mirror*)p1;
-	mirror* b = (mirror*)p2;
+	mirror *a = (mirror *)p1;
+	mirror *b = (mirror *)p2;
 	return a->orderNum - b->orderNum;
 }
-bool findImportant(mirror* startOrder, unsigned int firstMirror){
+bool findImportant(mirror *startOrder, unsigned int firstMirror)
+{
 	unsigned int currLoc = firstMirror;
 	int dir = 1;
-	while (true) { //loop through the view
+	while (true)
+	{ //loop through the view
 		if ((startOrder[currLoc].vis) && (startOrder[currLoc].dir == dir))
 			return 0;
 		startOrder[currLoc].vis = 1;
 		startOrder[currLoc].dir = dir;
 		if (startOrder[currLoc].tilt_house == 'B')
 			return 1;
-		else if (startOrder[currLoc].tilt_house == '/') {
+		else if (startOrder[currLoc].tilt_house == '/')
+		{
 			if ((dir) && (startOrder[currLoc].by_xLoc->next != NULL))
 				currLoc = startOrder[currLoc].by_xLoc->next->mirrorOrderNum;
 			else if ((!dir) && (startOrder[currLoc].by_xLoc->prev != NULL))
@@ -108,12 +113,13 @@ bool findImportant(mirror* startOrder, unsigned int firstMirror){
 			else
 				return 0;
 		}
-		else { //going like '\'
+		else
+		{ //going like '\'
 			if ((dir) && (startOrder[currLoc].by_xLoc->prev != NULL))
 				currLoc = startOrder[currLoc].by_xLoc->prev->mirrorOrderNum;
 			else if ((!dir) && (startOrder[currLoc].by_xLoc->next != NULL))
 				currLoc = startOrder[currLoc].by_xLoc->next->mirrorOrderNum;
-			else 
+			else
 				return 0;
 			dir = !dir;
 		}
@@ -125,7 +131,8 @@ bool findImportant(mirror* startOrder, unsigned int firstMirror){
 		startOrder[currLoc].dir = dir + 2;
 		if (startOrder[currLoc].tilt_house == 'B')
 			return 1;
-		else if (startOrder[currLoc].tilt_house == '/') {
+		else if (startOrder[currLoc].tilt_house == '/')
+		{
 			if ((dir) && (startOrder[currLoc].by_yLoc->next != NULL))
 				currLoc = startOrder[currLoc].by_yLoc->next->mirrorOrderNum;
 			else if ((!dir) && (startOrder[currLoc].by_yLoc->prev != NULL))
@@ -133,7 +140,8 @@ bool findImportant(mirror* startOrder, unsigned int firstMirror){
 			else
 				return 0;
 		}
-		else { //going like '\'
+		else
+		{ //going like '\'
 			if ((dir) && (startOrder[currLoc].by_yLoc->prev != NULL))
 				currLoc = startOrder[currLoc].by_yLoc->prev->mirrorOrderNum;
 			else if ((!dir) && (startOrder[currLoc].by_yLoc->next != NULL))
@@ -145,18 +153,20 @@ bool findImportant(mirror* startOrder, unsigned int firstMirror){
 		startOrder[currLoc].important = 1;
 	}
 }
-bool cheak(mirror* startOrder, unsigned int firstMirror)
+bool cheak(mirror *startOrder, unsigned int firstMirror)
 {
 	unsigned int currLoc = firstMirror;
 	bool dir = 1;
-	while (true) { //loop through the view
+	while (true)
+	{ //loop through the view
 		if ((startOrder[currLoc].vis) && (startOrder[currLoc].dir == dir))
 			return 0;
 		startOrder[currLoc].vis = 1;
 		startOrder[currLoc].dir = dir;
 		if (startOrder[currLoc].tilt_house == 'B')
 			return 1;
-		else if (startOrder[currLoc].tilt_house == '/') {
+		else if (startOrder[currLoc].tilt_house == '/')
+		{
 			if ((dir) && (startOrder[currLoc].by_xLoc->next != NULL))
 				currLoc = startOrder[currLoc].by_xLoc->next->mirrorOrderNum;
 			else if ((!dir) && (startOrder[currLoc].by_xLoc->prev != NULL))
@@ -164,7 +174,8 @@ bool cheak(mirror* startOrder, unsigned int firstMirror)
 			else
 				return 0;
 		}
-		else { //going like '\'
+		else
+		{ //going like '\'
 			if ((dir) && (startOrder[currLoc].by_xLoc->prev != NULL))
 				currLoc = startOrder[currLoc].by_xLoc->prev->mirrorOrderNum;
 			else if ((!dir) && (startOrder[currLoc].by_xLoc->next != NULL))
@@ -180,7 +191,8 @@ bool cheak(mirror* startOrder, unsigned int firstMirror)
 		startOrder[currLoc].dir = dir + 2;
 		if (startOrder[currLoc].tilt_house == 'B')
 			return 1;
-		else if (startOrder[currLoc].tilt_house == '/') {
+		else if (startOrder[currLoc].tilt_house == '/')
+		{
 			if ((dir) && (startOrder[currLoc].by_yLoc->next != NULL))
 				currLoc = startOrder[currLoc].by_yLoc->next->mirrorOrderNum;
 			else if ((!dir) && (startOrder[currLoc].by_yLoc->prev != NULL))
@@ -188,7 +200,8 @@ bool cheak(mirror* startOrder, unsigned int firstMirror)
 			else
 				return 0;
 		}
-		else { //going like '\'
+		else
+		{ //going like '\'
 			if ((dir) && (startOrder[currLoc].by_yLoc->prev != NULL))
 				currLoc = startOrder[currLoc].by_yLoc->prev->mirrorOrderNum;
 			else if ((!dir) && (startOrder[currLoc].by_yLoc->next != NULL))
@@ -199,17 +212,18 @@ bool cheak(mirror* startOrder, unsigned int firstMirror)
 		}
 	}
 }
-void q1(const char* fpIn, const char* fpOut)
+void q1(const char *fpIn, const char *fpOut)
 {
-	FILE* fp = NULL;
+	FILE *fp = NULL;
 	fp = fopen(fpIn, "r");
-	unsigned int numOfImp_points = getNumInFile(&fp) +1;
-	mirror* startOrder = (mirror*)malloc(sizeof(mirror) * numOfImp_points);
+	unsigned int numOfImp_points = getNumInFile(&fp) + 1;
+	mirror *startOrder = (mirror *)malloc(sizeof(mirror) * numOfImp_points);
 	startOrder->tilt_house = 'B';
 	startOrder->loc.x = getNumInFile(&fp);
 	startOrder->loc.y = getNumInFile(&fp);
 	startOrder->orderNum = 0;
-	for (unsigned int i = 1; i < numOfImp_points; i++) {
+	for (unsigned int i = 1; i < numOfImp_points; i++)
+	{
 		startOrder[i].loc.x = getNumInFile(&fp);
 		startOrder[i].loc.y = getNumInFile(&fp);
 		startOrder[i].tilt_house = fgetc(fp);
@@ -226,36 +240,42 @@ void q1(const char* fpIn, const char* fpOut)
 	int curr = startOrder[0].loc.x;
 	unsigned int fisrtMirror;
 	bool found = 0;
-	for (unsigned int i = 0; i < numOfImp_points; i++) { //counting numOf_x
-		if (startOrder[i].loc.x != curr) {
+	for (unsigned int i = 0; i < numOfImp_points; i++)
+	{ //counting numOf_x
+		if (startOrder[i].loc.x != curr)
+		{
 			curr = startOrder[i].loc.x;
 			numOf_x++;
 		}
-		if (!found && ((startOrder[i].loc.y == 0) && (startOrder[i].loc.x > 0))) {
+		if (!found && ((startOrder[i].loc.y == 0) && (startOrder[i].loc.x > 0)))
+		{
 			fisrtMirror = startOrder[i].orderNum;
 			found = 1;
 		}
 		startOrder[i].loc.x = numOf_x; //scaling down
 	}
-	if (found == 0) {
+	if (found == 0)
+	{
 		fprintf(fp, "-1");
 		return;
 	}
 	numOf_x++;
-	linkList** by_x = (linkList * *)malloc(sizeof(linkList*) * numOf_x);
+	linkList **by_x = (linkList **)malloc(sizeof(linkList *) * numOf_x);
 	unsigned int currLoc = 0;
-	linkList* currLink;
-	linkList* prev;
-	for (unsigned int i = 0; i < numOf_x; i++) {
+	linkList *currLink;
+	linkList *prev;
+	for (unsigned int i = 0; i < numOf_x; i++)
+	{
 		curr = startOrder[currLoc].loc.x;
-		by_x[i] = (linkList*)malloc(sizeof(linkList));
+		by_x[i] = (linkList *)malloc(sizeof(linkList));
 		prev = by_x[i];
 		prev->prev = NULL;
 		prev->mirrorOrderNum = startOrder[currLoc].orderNum;
 		startOrder[currLoc].by_xLoc = prev;
 		currLoc++;
-		while ((currLoc < numOfImp_points) && (startOrder[currLoc].loc.x == curr)) {
-			prev->next = (linkList*)malloc(sizeof(linkList));
+		while ((currLoc < numOfImp_points) && (startOrder[currLoc].loc.x == curr))
+		{
+			prev->next = (linkList *)malloc(sizeof(linkList));
 			currLink = prev->next;
 			currLink->mirrorOrderNum = startOrder[currLoc].orderNum;
 			currLink->prev = prev;
@@ -269,26 +289,30 @@ void q1(const char* fpIn, const char* fpOut)
 	qsort(startOrder, numOfImp_points, sizeof(mirror), compareByY);
 	unsigned int numOf_y = 0;
 	curr = startOrder[0].loc.y;
-	for (unsigned int i = 0; i < numOfImp_points; i++) { //counting numOf_y
-		if (startOrder[i].loc.y != curr) {
+	for (unsigned int i = 0; i < numOfImp_points; i++)
+	{ //counting numOf_y
+		if (startOrder[i].loc.y != curr)
+		{
 			curr = startOrder[i].loc.y;
 			numOf_y++;
 		}
 		startOrder[i].loc.y = numOf_y; //scaling down
 	}
 	numOf_y++;
-	linkList** by_y = (linkList * *)malloc(sizeof(linkList*) * numOf_y);
+	linkList **by_y = (linkList **)malloc(sizeof(linkList *) * numOf_y);
 	currLoc = 0;
-	for (unsigned int i = 0; i < numOf_y; i++) {
+	for (unsigned int i = 0; i < numOf_y; i++)
+	{
 		curr = startOrder[currLoc].loc.y;
-		by_y[i] = (linkList*)malloc(sizeof(linkList));
+		by_y[i] = (linkList *)malloc(sizeof(linkList));
 		prev = by_y[i];
 		prev->prev = NULL;
 		prev->mirrorOrderNum = startOrder[currLoc].orderNum;
 		startOrder[currLoc].by_yLoc = prev;
 		currLoc++;
-		while ((currLoc < numOfImp_points) && (startOrder[currLoc].loc.y == curr)) {
-			prev->next = (linkList*)malloc(sizeof(linkList));
+		while ((currLoc < numOfImp_points) && (startOrder[currLoc].loc.y == curr))
+		{
+			prev->next = (linkList *)malloc(sizeof(linkList));
 			currLink = prev->next;
 			currLink->mirrorOrderNum = startOrder[currLoc].orderNum;
 			currLink->prev = prev;
@@ -305,13 +329,16 @@ void q1(const char* fpIn, const char* fpOut)
 		startOrder[i].vis = 0;
 	if (findImportant(startOrder, fisrtMirror)) //if he can already see it
 		fprintf(fp, "0");
-	else {
+	else
+	{
 		for (unsigned int i = 0; i < numOfImp_points; i++)
 			startOrder[i].vis = 0;
 		unsigned int ans;
-		for (ans = 1; ans < numOfImp_points; ans++) {
-			if (startOrder[ans].important) {
-				if(startOrder[ans].tilt_house == '/') //toggle it
+		for (ans = 1; ans < numOfImp_points; ans++)
+		{
+			if (startOrder[ans].important)
+			{
+				if (startOrder[ans].tilt_house == '/') //toggle it
 					startOrder[ans].tilt_house = '\\';
 				else
 					startOrder[ans].tilt_house = '/';
