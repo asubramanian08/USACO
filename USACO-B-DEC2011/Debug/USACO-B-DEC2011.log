@@ -1,0 +1,7 @@
+﻿  DEC2011.cpp
+C:\Users\Arjun\source\repos\USACO-B-DEC2011\DEC2011.cpp(50): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\Arjun\source\repos\USACO-B-DEC2011\DEC2011.cpp(54): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\Arjun\source\repos\USACO-B-DEC2011\DEC2011.cpp(95): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\Arjun\source\repos\USACO-B-DEC2011\DEC2011.cpp(99): warning C4244: '=': conversion from '__int64' to 'int', possible loss of data
+C:\Users\Arjun\source\repos\USACO-B-DEC2011\DEC2011.cpp(160): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+  USACO-B-DEC2011.vcxproj -> C:\Users\Arjun\source\repos\USACO-B-DEC2011\Debug\USACO-B-DEC2011.exe
