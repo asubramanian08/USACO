@@ -1,0 +1,2 @@
+go to https://stackoverflow.com/questions/19064133/understanding-kadanes-
+algorithm-for-2-d-array
