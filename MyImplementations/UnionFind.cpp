@@ -1,30 +1,42 @@
-#include <stdlib.h>
-
-unsigned int *id, *sz;
-void init(unsigned int N)
+//DSU or union-find
+class DSU
 {
-    id = (unsigned int *)malloc(sizeof(unsigned int) * N);
-    sz = (unsigned int *)malloc(sizeof(unsigned int) * N);
-    for (unsigned int i = 0; i < N; i++)
+private:
+    int *id;
+    int *sz;
+
+public:
+    DSU(int n_ele);
+    //find its first parent
+    int root(int idx);
+    bool is_connected(int n1, int n2);
+    void connect(int n1, int n2);
+    int numConns(int idx);
+    ~DSU();
+};
+DSU::DSU(int n_ele)
+{
+    id = new int[n_ele];
+    sz = new int[n_ele];
+    for (int i = 0; i < n_ele; i++)
     {
         id[i] = i;
         sz[i] = 1;
     }
 }
-//find its first parent
-unsigned int root(unsigned int i)
+int DSU::root(int idx)
 {
-    while (i != id[i])
+    while (idx != id[idx])
     {
-        id[i] = id[id[i]];
-        i = id[i];
+        id[idx] = id[id[idx]];
+        idx = id[idx];
     }
-    return i;
+    return idx;
 }
-bool is_connected(unsigned int p, unsigned int q) { return root(p) == root(q); }
-void connect(unsigned int p, unsigned int q)
+bool DSU::is_connected(int n1, int n2) { return root(n1) == root(n2); }
+void DSU::connect(int n1, int n2)
 {
-    unsigned int i = root(p), j = root(q);
+    int i = root(n1), j = root(n2);
     if (i == j)
         return;
     if (sz[i] < sz[j])
@@ -37,4 +49,13 @@ void connect(unsigned int p, unsigned int q)
         id[j] = i;
         sz[i] += sz[j];
     }
+}
+int DSU::numConns(int idx)
+{
+    return sz[root(idx)];
+}
+DSU::~DSU()
+{
+    delete[] id;
+    delete[] sz;
 }
