@@ -1,3 +1,4 @@
+//BIT or fenwick tree
 class BIT
 {
 private:
@@ -29,6 +30,8 @@ BIT::BIT(int elem, int *initialize, int numInit)
 }
 int BIT::query(int node)
 {
+    if (node == -1)
+        return 0;
     int sum = 0;
     for (int i = node + 1; i > 0; i -= (i & -i))
         sum += bTree[i];
