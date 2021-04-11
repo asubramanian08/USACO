@@ -1,0 +1,2 @@
+make sure to use a set, sort by x, process event points in order
+star league week 11

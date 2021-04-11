@@ -1,0 +1,6 @@
+This can be tricky
+ - Map
+ - B-search vector
+ - distance between points
+
+Star league week 12
