@@ -7,8 +7,7 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-g",
-                "-std=s++17",
-                //"${fileDirname}/${input:Compiler Arg}",
+                "-std=c++17",
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
@@ -24,20 +23,6 @@
                 "isDefault": true
             },
             "detail": "compiler: /usr/bin/g++"
-        },
-        {
-            "label": "Open Terminal",
-            "type": "shell",
-            "command": "osascript -e 'tell application \"Terminal\"\ndo script \"echo hello\"\nend tell'",
-            "problemMatcher": []
         }
-    ],
-    "inputs": [
-        {
-            "id": "Compiler Arg",
-            "description": "Get a file that you want to compile with",
-            "default": "",
-            "type": "promptString"
-        },
     ]
 }

@@ -1,3 +1,5 @@
+//taken for real -> 0/3
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -6,16 +8,16 @@
 #include <ctype.h>
 #include <time.h>
 #include <string.h>
-int readNumInFile(FILE** fp)
+int readNumInFile(FILE **fp)
 {
-	char ch = fgetc(*fp);
-	int num = 0;
-	while ((ch != '\n') && (ch != ' '))
-	{
-		num = num * 10 + ch - '0';
-		ch = fgetc(*fp);
-	}
-	return num;
+    char ch = fgetc(*fp);
+    int num = 0;
+    while ((ch != '\n') && (ch != ' '))
+    {
+        num = num * 10 + ch - '0';
+        ch = fgetc(*fp);
+    }
+    return num;
 }
 //this is the set of bronse questions for febuary 2020
 /*struct point
@@ -266,14 +268,14 @@ void q2(const char* fileIn, const char* fileOut)
 	fprintf(fp, "%d", toReturn);
 	fclose(fp);
 }*/
-void readNumbers(FILE* fp, int* NumOfCows, long* timesToSwitch, int* A1, int* A2, int* B1, int* B2)
+void readNumbers(FILE *fp, int *NumOfCows, long *timesToSwitch, int *A1, int *A2, int *B1, int *B2)
 {
-	*NumOfCows = readNumInFile(&fp);
-	*timesToSwitch = readNumInFile(&fp);
-	*A1 = readNumInFile(&fp);
-	*A2 = readNumInFile(&fp); 
-	*B1 = readNumInFile(&fp);
-	*B2 = readNumInFile(&fp);
+    *NumOfCows = readNumInFile(&fp);
+    *timesToSwitch = readNumInFile(&fp);
+    *A1 = readNumInFile(&fp);
+    *A2 = readNumInFile(&fp);
+    *B1 = readNumInFile(&fp);
+    *B2 = readNumInFile(&fp);
 }
 /*int findLocation(int timesToSwitch, int A1, int A2, int B1, int B2, int cowNumber)
 {
@@ -289,53 +291,53 @@ void readNumbers(FILE* fp, int* NumOfCows, long* timesToSwitch, int* A1, int* A2
 }*/
 int findLocation(const long timesToSwitch, int A1, int A2, int B1, int B2, int cowNumber)
 {
-	//int locationsArray[timesToSwitch] = { cowNumber };
-	int* locationsArray = (int *)malloc(timesToSwitch/10000 + 16);
-	locationsArray[0] = cowNumber;
-	int currentLocation = cowNumber;
-	for (int i = 0; i < timesToSwitch; i++)
-	{
-		if ((currentLocation >= A1) && (currentLocation <= A2))
-			currentLocation = A2 - currentLocation + A1;
-		if ((currentLocation >= B1) && (currentLocation <= B2))
-			currentLocation = B2 - currentLocation + B1;
-		if (cowNumber == 11)
-			printf("%d\n", currentLocation);
-		if (currentLocation == cowNumber)
-			return locationsArray[timesToSwitch % (i + 1)];
-		locationsArray[i + 1] = currentLocation;
-	}
-	return currentLocation;
+    //int locationsArray[timesToSwitch] = { cowNumber };
+    int *locationsArray = (int *)malloc(timesToSwitch / 10000 + 16);
+    locationsArray[0] = cowNumber;
+    int currentLocation = cowNumber;
+    for (int i = 0; i < timesToSwitch; i++)
+    {
+        if ((currentLocation >= A1) && (currentLocation <= A2))
+            currentLocation = A2 - currentLocation + A1;
+        if ((currentLocation >= B1) && (currentLocation <= B2))
+            currentLocation = B2 - currentLocation + B1;
+        if (cowNumber == 11)
+            printf("%d\n", currentLocation);
+        if (currentLocation == cowNumber)
+            return locationsArray[timesToSwitch % (i + 1)];
+        locationsArray[i + 1] = currentLocation;
+    }
+    return currentLocation;
 }
-void q3(const char* fileIn, const char* fileOut)
+void q3(const char *fileIn, const char *fileOut)
 {
-	FILE* fp = NULL;
-	int NumOfCows, A1, A2, B1, B2;
-	long timesToSwitch;
-	fopen_s(&fp, fileIn, "r");
-	//fp = fopen(fileIn, "r");
-	readNumbers(fp, &NumOfCows, &timesToSwitch, &A1, &A2, &B1, &B2);
-	fclose(fp);
-	int* resultOrder = (int*)malloc(sizeof(int)* NumOfCows);
-	for (int i = 1; i <= NumOfCows; i++)
-		resultOrder[findLocation(timesToSwitch, A1, A2, B1, B2, i) - 1] = i;
+    FILE *fp = NULL;
+    int NumOfCows, A1, A2, B1, B2;
+    long timesToSwitch;
+    fopen_s(&fp, fileIn, "r");
+    //fp = fopen(fileIn, "r");
+    readNumbers(fp, &NumOfCows, &timesToSwitch, &A1, &A2, &B1, &B2);
+    fclose(fp);
+    int *resultOrder = (int *)malloc(sizeof(int) * NumOfCows);
+    for (int i = 1; i <= NumOfCows; i++)
+        resultOrder[findLocation(timesToSwitch, A1, A2, B1, B2, i) - 1] = i;
 
-	fp = NULL;
-	fopen_s(&fp, fileOut, "w");
-	//fp = fopen(fileOut, "w");
-	for (int i = 0; i < NumOfCows; i++)
-		fprintf(fp, "%d\n", resultOrder[i]);
-	fclose(fp);
+    fp = NULL;
+    fopen_s(&fp, fileOut, "w");
+    //fp = fopen(fileOut, "w");
+    for (int i = 0; i < NumOfCows; i++)
+        fprintf(fp, "%d\n", resultOrder[i]);
+    fclose(fp);
 }
 int main(void)
 {
-	//q1("./Debug/triangles.in", "Debug/triangles.out"); //took to long to figure out, took help - idk what
-	//q1("triangles.in", "triangles.out");
-	//q2("./Debug/breedflip.in", "./Debug/breedflip.out");// asked about what the question ment - if you can filp something, and then something inside of that
-	//q2("breedflip.in", "breedflip.out");
-	q3("./Debug/swap.in", "./Debug/swap.out"); //miskate: didn't try to figere out a patteern and went starait to caluclating where everything would end up the whole way throguh
-	//q3("swap.in", "swap.out");
-	//q3 credit for idea: dad
-	system("pause");
-	return 0;
+    //q1("./Debug/triangles.in", "Debug/triangles.out"); //took to long to figure out, took help - idk what
+    //q1("triangles.in", "triangles.out");
+    //q2("./Debug/breedflip.in", "./Debug/breedflip.out");// asked about what the question ment - if you can filp something, and then something inside of that
+    //q2("breedflip.in", "breedflip.out");
+    q3("./Debug/swap.in", "./Debug/swap.out"); //miskate: didn't try to figere out a patteern and went starait to caluclating where everything would end up the whole way throguh
+    //q3("swap.in", "swap.out");
+    //q3 credit for idea: dad
+    system("pause");
+    return 0;
 }
