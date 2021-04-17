@@ -18,7 +18,8 @@
         "new": "cpp",
         "filesystem": "cpp",
         "iostream": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "__string": "cpp"
     },
 	"editor.formatOnPaste": true,
 	"editor.formatOnSave": true,
