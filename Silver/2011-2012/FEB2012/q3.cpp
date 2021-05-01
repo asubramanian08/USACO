@@ -14,23 +14,15 @@ typedef pair<int, int> pii;
 #define mp make_pair
 int numTowns, numConns, numMarkets;
 int *markets;
-vector<pii> *conns;
+vector<pii> *graph;
 int **dists; //first number is the market
 #define NA -1
 #define BIG_NUM 1'000'000'000
 
-class pqCmp
-{
-public:
-    bool operator()(const pii &p1, const pii &p2)
-    {
-        return p1 > p2;
-    }
-};
 void dijkstra(int source)
 {
-    priority_queue<pii, vector<pii>, pqCmp> pq;
-    pq.push(mp(0, source));
+    priority_queue<pii, vector<pii>, greater<pii>> pq;
+    pq.push(mp(0, markets[source]));
     pii node; //dist, point
     while (!pq.empty())
     {
@@ -42,17 +34,17 @@ void dijkstra(int source)
         dists[source][node.second] = node.first;
 
         //add other nodes
-        for (auto next : conns[node.second])
+        for (auto next : graph[node.second])
             if (dists[source][next.second] == NA)
                 pq.push(mp(next.first + node.first, next.second));
     }
 }
 int findCost(const int *ordering, int town)
 {
-    int dist = dists[ordering[markets[0]]][town];
+    int dist = dists[ordering[0]][town];
     for (int i = 1; i < numMarkets; i++)
-        dist += dists[ordering[markets[i]]][ordering[markets[i - 1]]];
-    dist += dists[ordering[markets[numMarkets - 1]]][town];
+        dist += dists[ordering[i]][markets[ordering[i - 1]]];
+    dist += dists[ordering[numMarkets - 1]][town];
     return dist;
 }
 
@@ -71,14 +63,14 @@ int main(void)
         markets[i]--;
     }
     int t1, t2, width;
-    conns = new vector<pii>[numTowns];
+    graph = new vector<pii>[numTowns];
     for (int i = 0; i < numConns; i++)
     {
         cin >> t1 >> t2 >> width;
         t1--;
         t2--;
-        conns[t1].push_back(mp(width, t2));
-        conns[t2].push_back(mp(width, t1));
+        graph[t1].push_back(mp(width, t2));
+        graph[t2].push_back(mp(width, t1));
     }
 
     //form the distences from the markets to all other nodes
@@ -87,7 +79,7 @@ int main(void)
     {
         dists[i] = new int[numTowns];
         fill(dists[i], dists[i] + numTowns, NA);
-        dijkstra(markets[i]);
+        dijkstra(i);
     }
 
     //set what is a market
@@ -97,25 +89,23 @@ int main(void)
         is_mark[markets[i]] = true;
 
     //find the minimum cost at a town
-    int minCost = BIG_NUM, currCost;
+    int minCost = BIG_NUM;
     int *ordering = new int[numMarkets];
     for (int i = 0; i < numTowns; i++)
     {
         if (is_mark[i])
             continue;
-        currCost = BIG_NUM;
         iota(ordering, ordering + numMarkets, 0);
         do
         {
-            currCost = min(currCost, findCost(ordering, i));
+            minCost = min(minCost, findCost(ordering, i));
         } while (next_permutation(ordering, ordering + numMarkets));
-        minCost = min(minCost, currCost);
     }
 
     //point and delete
     cout << minCost;
     delete[] markets;
-    delete[] conns;
+    delete[] graph;
     for (int i = 0; i < numMarkets; i++)
         delete[] dists[i];
     delete[] dists;
