@@ -19,7 +19,13 @@
         "filesystem": "cpp",
         "iostream": "cpp",
         "vector": "cpp",
-        "__string": "cpp"
+        "__string": "cpp",
+        "list": "cpp",
+        "functional": "cpp",
+        "map": "cpp",
+        "queue": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp"
     },
 	"editor.formatOnPaste": true,
 	"editor.formatOnSave": true,

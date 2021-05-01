@@ -2,8 +2,9 @@
     "configurations": [
         {
             "name": "GCC",
-            "includePath": ["${workspaceFolder}"],
-            //"limitSymbolsToIncludedHeaders" : true,
+            "includePath": [
+                "${workspaceFolder}"
+            ],
             "defines": [],
             "macFrameworkPath": [],
             "cStandard": "c17",
