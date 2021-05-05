@@ -3,3 +3,4 @@ All star league resources are available
 Algorithms are already implemented ->implementations
 Don't over think -> step back
 If stuck think possible greedy or DP
+Debug time cut down -> so doing bronzes
