@@ -1,7 +1,7 @@
 // Start: 3:15
 // Think: 3:24, 5:03-5:31
 // Write: (forgot) not much debug time
-// Debug: 7:12
+// Debug: 7:12 //last 3/10 wrong
 //could have done 1-0 BFS
 #include <iostream>
 #include <queue>
@@ -31,25 +31,25 @@ bool check(point pt)
     return false;
 }
 
-bool is_start(point src)
+bool is_start(point pt)
 {
-    for (int i = -1; i < 2; i++)
-        for (int j = -1; j < 2; j++)
-            if (!out_range(make_pair(src.x + i, src.y + j)) &&
-                !is_bale[src.x + i][src.y + j] &&
-                vis[src.x + i][src.y + j])
-                return true;
-    return false;
+    return (!out_range(make_pair(pt.x, pt.y)) &&
+            !is_bale[pt.x][pt.y] &&
+            vis[pt.x][pt.y]);
 }
-bool is_end(point src)
+bool is_end(point pt)
 {
-    for (int i = -1; i < 2; i++)
-        for (int j = -1; j < 2; j++)
-            if (!out_range(make_pair(src.x + i, src.y + j)) &&
-                !is_bale[src.x + i][src.y + j] &&
-                !vis[src.x + i][src.y + j])
-                return true;
-    return false;
+    return (!out_range(make_pair(pt.x, pt.y)) &&
+            !is_bale[pt.x][pt.y] &&
+            !vis[pt.x][pt.y]);
+}
+template <typename Func>
+bool is_type(point src, Func check)
+{
+    return check(make_pair(src.x + 1, src.y)) ||
+           check(make_pair(src.x - 1, src.y)) ||
+           check(make_pair(src.x, src.y + 1)) ||
+           check(make_pair(src.x, src.y - 1));
 }
 void addEdge(edge src, queue<edge> &q, queue<point> &BFS)
 {
@@ -66,9 +66,9 @@ void BFSedge(queue<edge> &q, queue<point> &BFS)
         //this not
         curr = q.front();
         q.pop();
-        if (is_start(curr.first))
+        if (is_type(curr.first, is_start))
             curr.second = 1;
-        if (is_end(curr.first))
+        if (is_type(curr.first, is_end))
             remMin = min(remMin, curr.second);
 
         //other nodes
