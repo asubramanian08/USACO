@@ -25,7 +25,8 @@
         "map": "cpp",
         "queue": "cpp",
         "deque": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "istream": "cpp"
     },
 	"editor.formatOnPaste": true,
 	"editor.formatOnSave": true,
