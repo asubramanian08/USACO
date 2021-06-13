@@ -1,0 +1,11 @@
+Bit Manipulation
+Built-in Data Structures
+User-Defined Data Structures (DSU, Fenwick Tree, Sparse Table, SQRT Decomposition)
+Graph Theory (Intro, MST, Shortest Paths, DAG, Tree )
+Dynamic Programming (Intro, Common Problem Types, Optimization Techniques, DP on Trees)
+Advanced BFS
+Computational Geometry (Points, Lines and Line Segments, Polygons)
+Coordinate Compression
+Sweep Line
+Range Queries
+Combinatorics and Numeric Algorithms

@@ -1,0 +1,34 @@
+Talent Show
+Farmer John is bringing his 𝑁 cows, conveniently numbered 1…𝑁, to the county fair, to compete in the 
+annual bovine talent show! His 𝑖th cow has a weight 𝑤𝑖 and talent level 𝑡𝑖, both integers.
+Upon arrival, Farmer John is quite surprised by the new rules for this year's talent show:
+(i) A group of cows of total weight at least 𝑊 must be entered into the show (in order to ensure strong
+teams of cows are competing, not just strong individuals), and 
+(ii) The group with the largest ratio of total talent to total weight shall win.
+
+FJ observes that all of his cows together have weight at least 𝑊, so he should be able to enter a team 
+satisfying (i). Help him determine the optimal ratio of talent to weight he can achieve for any such team.
+
+INPUT FORMAT:
+The first line of input contains 𝑁 (1≤𝑁≤250) and 𝑊 (1≤𝑊≤1000).
+The next 𝑁 lines each describe a cow using two integers 𝑤𝑖 (1≤𝑤𝑖≤106) and 𝑡𝑖 (1≤𝑡𝑖≤103).
+
+OUTPUT FORMAT:
+Please determine the largest possible ratio of total talent over total weight Farmer John can achieve using
+a group of cows of total weight at least 𝑊. If your answer is 𝐴, please print out the floor of 1000𝐴 in 
+order to keep the output integer-valued (the floor operation discards any fractional part by rounding down
+to an integer, if the number in question is not already an integer).
+
+SAMPLE INPUT:
+3 15
+20 21
+10 11
+30 31
+
+SAMPLE OUTPUT:
+1066
+
+In this example, the best talent-to-weight ratio overall would be to use just the single cow with talent 
+11 and weight 10, but since we need at least 15 units of weight, the optimal solution ends up being to 
+use this cow plus the cow with talent 21 and weight 20. This gives a talent-to-weight ratio of 
+(11+21)/(10+20) = 32/30 = 1.0666666..., which when multiplied by 1000 and floored gives 1066.

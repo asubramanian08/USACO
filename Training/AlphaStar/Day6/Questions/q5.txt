@@ -1,0 +1,55 @@
+Cow Frisbee Team
+================
+
+After Farmer Don took up Frisbee, Farmer John wanted to join in the
+fun. He wants to form a Frisbee team from his N cows (1 <= N <=
+2,000) conveniently numbered 1..N. The cows have been practicing
+flipping the discs around, and each cow i has a rating R_i (1 <=
+R_i <= 100,000) denoting her skill playing Frisbee. FJ can form a
+team by choosing one or more of his cows.
+
+However, because FJ needs to be very selective when forming Frisbee
+teams, he has added an additional constraint. Since his favorite
+number is F (1 <= F <= 1,000), he will only accept a team if the
+sum of the ratings of each cow in the team is exactly divisible by
+F.
+
+Help FJ find out how many different teams he can choose. Since this
+number can be very large, output the answer modulo 100,000,000.
+
+Note: about 50% of the test data will have N <= 19.
+
+PROBLEM NAME: fristeam
+
+INPUT FORMAT:
+
+* Line 1: Two space-separated integers: N and F
+
+* Lines 2..N+1: Line i+1 contains a single integer: R_i
+
+SAMPLE INPUT:
+
+4 5
+1
+2
+8
+2
+
+INPUT DETAILS:
+
+FJ has four cows whose ratings are 1, 2, 8, and 2. He will only accept a
+team whose rating sum is a multiple of 5.
+
+OUTPUT FORMAT:
+
+* Line 1: A single integer representing the number of teams FJ can
+        choose, modulo 100,000,000.
+
+SAMPLE OUTPUT:
+
+3
+
+OUTPUT DETAILS:
+
+FJ can pair the 8 and either of the 2's (8 + 2 = 10), or he can use both
+2's and the 1 (2 + 2 + 1 = 5).

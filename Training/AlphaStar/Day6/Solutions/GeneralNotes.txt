@@ -1,0 +1,74 @@
+jamboard link: https://jamboard.google.com/d/1q0qc5pfVd7KNyJHDS8_lkP2CKoysY9TLInjqMV5OUSY/edit?usp=sharing
+
+Best Cow Line
+
+In this problem, we use a greedy approach. Lets keep the original string as a list. If the first and last element 
+are different, we'll just pop the one that comes lexicographically first and append that to our answer. 
+Otherwise, we search through the string from both ends until we find a place where the left and right side 
+differ. If the different character on the right is lexicographically first, we pop the rightmost element, and 
+vice versa. This leads us to the optimal answer in O(N^2) time.
+
+
+
+Milk Routing
+
+For this, we just iterate through all M possible values for the capacity C of our final path. For each of these 
+values, we'll just run a dijkstra's for the minimum latency path using capacity >= C. Then we just pick the 
+minimum value of L + X/C between the results of these dijkstras. This is guaranteed to find our optimal solution 
+in O(M^2 log N) time.
+
+
+
+Cheese Towers
+
+There are many multiple ways to approach this problem with different DP formulations. One of the cleanest ones is 
+to have the state DP[i][j] = min cost of creating height i with j meaning whether its compressed or not. Our 
+transitions will have to iterate over all N blocks for all cheese for each height, accounting for adding the 
+block as compressed or uncompressed, as well as accounting for a block which will compress everything underneath 
+it.
+
+
+
+Cow at Large
+
+We first realize that Bessie should always move to greater depths in the tree while the farmers should move to 
+lower depths. With some observation, we can then see that a node can be "blocked" if its distance from a farmer 
+is <= its distance from Bessie. To block of a node, we should put a farmer in the leaf closest to it. Hence, for 
+our final solution, we can use a DFS of Bessie's distance to each node and a multisource BFS of the minimum 
+distance from each node to a leaf. Then, our answer will be the total number of nodes which themselves can be 
+blocked, but have parents which cannot.
+
+
+
+Cow Frisbee Team
+
+This problem is extremeley similar to the traditional knapsack problem. However, instead of having DP[i][j] 
+represent using the first i cows to create a total team rating j, we'll use the DP[i][j] represents using the 
+first i cows to create a total team rating j%F formulation (thus a O(NF) space complexity). For each state, we'll 
+sum the possibility of not using cow i or using cow i, leading to the transition 
+
+	DP[i][j] = DP[i-1][j] + DP[i-1][(j-R_i+F)%F]
+
+
+
+River Crossing
+
+This should be very similar to bookshelf or the umbrella covering problem. We have DP[i] represent the total cost 
+of taking the first i cows to the other side and then returning back to the start. Our transition is the optimal 
+cost of taking k<i cows and then transporting cows k+1,...,i together, then returning. Mathematically, DP[i] = 
+min(DP[k] + T[i - k] + M) where T[x] is the time to take x cows across based on M[i]'s
+
+
+
+Balancing Inversions
+
+We first notice that, as long as we don't swap two of the same number or the two elements in the middle, we 
+change the number of inversions on a side by 1. Hence, given that Bessie has A inversions and Elsie has B 
+inversions, without middle swaps we'd have to do |A-B| swaps. Now, with some analysis, we can find that swapping 
+the middle elements, if Bessie has a 0 and Elsie has a 1, changes A - B by -N + (# of 0s) and, if Bessie has a 1 
+and Elsie has a 0, changes A - B by +N - (# of 0s). Using this, we can create a simulation, using two pointers to 
+store Bessie's closest swap element (1 or 0 depending on the type of swap we're doing) and Elsie's closest swap 
+element. For each number of middle swaps, we account for the change in inversions of bringing the swap elements 
+to the middle, then the change of inversions when actually swapping them. All of this can be done in O(1) time, 
+leading us to be able to find the answer for the optimal number of middle swaps to do (and, directly following, 
+our answer) in O(N) time.

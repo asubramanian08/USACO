@@ -1,0 +1,21 @@
+Sorting
+Searching
+Built-in Data Structures (Array, List, Stack, Queue, Dequeue, Priority Queue, Set, Map)
+Recursion
+Divide and Conquer
+Backtracking
+Flood Fill (depth first search - DFS)
+Breach First Search (BFS)
+Prefix Sum Array
+Difference Array
+Sliding Window and Two Pointers
+Bit Manipulation (bit masking)
+Introduction to Graphs (Graph Representations, Graph Traversals, Connectivity, Cycle Detection. Two Coloring, Shortest Path on an Unweighted Graph)
+Tree Algorithms (Tree Traversals, Binary Tree Traversals, Height and Depth of Nodes, Sub-Trees, Lowest Common Ancestor - LCA)
+Sweep Line Algorithm
+Geometry (Points, Lines, Line segments, Polygons)
+Numeric Algorithms
+Algorithms on Strings
+Game Theory
+Greedy and Ad-Hoc Problems
+Simulation Problems

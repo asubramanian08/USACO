@@ -1,0 +1,37 @@
+jamboard link: https://jamboard.google.com/d/1a4gVvpynNxT4Vkgjwm3UNeYPxIf54eHteUbQ1WCBzwk/edit?usp=sharing
+
+
+Haybale Feast
+
+This is one of the simpler problems in the set. We first observe that, given a fixed right endpoint, 
+we should pick the rightmost other endpoint which satisfies the flavor property. This inspires a 
+two-pointer approach. Additionally, we need to use an auxiliary data structure, for example, a TreeSet or 
+MultiSet, to store the maximum spiciness in the given interval.
+
+
+Liars and Truth Tellers
+
+Although there is a DSU approach to this problem, a simpler approach uses binary search alongside flood 
+fill. Essentially, we create an adjacency list for all the given edges. Then, we fix a value of A (the 
+number of statements to use) and flood fill using the edges which appear before A and checking if there is
+any inconsistency. Binary searching over A, we can find our solution.
+
+
+Cow Digit Game
+
+For this problem, we use a dynamic programming approach that stores whether or not Bessie can win given a
+certain value of N. The base case is dp[0] = false, since by definition, the player who has to play when 
+N = 0 loses. The recursive case is dp[i] = !dp[i-(top digit)] || !dp[i-(bottom digit)] since Bessie is 
+trying to either pick the bottom digit or top digit to put Farmer John into a losing state. 
+
+
+Painting The Barn
+
+This problem is very involved compared to the others. First, it's easier to think of this problem in the 
+one-dimensional case where we draw intervals on a line. We notice here that if we transform the regions 
+into +1 if it has K-1 layers of paint, -1 if it has K layers of paint, and 0 otherwise, the objective of 
+adding another interval becomes congruent to a maximal subarray problem. Running this maximal subarray 
+from the left and right side of the array allows you to compute the answer for adding two disjoint 
+intervals. To expand this idea to two dimensions, we use the idea of a 2D-prefix sum, fixing the 
+x-coordinate of a rectangle and using a linear scan with the maximal subarray idea to reduce the time 
+complexity of scanning the y-coordinates.

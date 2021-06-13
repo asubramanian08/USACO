@@ -1,0 +1,85 @@
+jamboard link: https://jamboard.google.com/d/1Ap3v7CXH-4ZzvOG0-tW1dceqy5-AVDdidU-XzzV2ZqQ/edit?usp=sharing
+
+
+The Bessie Shuffle
+
+For this question, let us first create a permutation representing the Bessie shuffle while keeping the 
+other elements constant. Then, consider this P’ as this permutation composed with a left shift/rotate 
+operation. This way, the same P’ can be applied to the array (N-M+1) times. Applying each permutation 
+takes N operations, making our runtime N^2. Using the idea of composing permutations and binary 
+exponentiation, we can speed this up to NlogN time. 
+
+
+Talent Show
+
+
+In this problem, we’re trying to maximize the ratio of talent to weight in the cows we select. First, we 
+can rewrite the problem such that, if we want to achieve a certain ratio r, the sum(t_i)/sum(w_i) > r and 
+sum(w_i) > w where the set of i represents all the cows that we select. Reexpressing, we get that sum(t_i 
+- r*w_i) > 0 and sum(w_i) > w. This subproblem can now be solved with a dynamic programming approach 
+similar to knapsack to see whether or not a value of r is possible. This is done through the definition 
+DP[k] = maximum sum(t_i - r*w_i) given sum(w_i) = i and the transition DP[min(w,k + w_j)] = DP[k] + (t_j -
+r*w_j) iterating through all values of k and j. Since all the values above a certain r don’t work and all 
+values below the same r work, we can binary search over r to compute the answer. To reduce the chance of 
+double-precision error, we can modify t_i - r*w_i to 1000*t_i - R*w_i where R = 1000*r and use integer 
+binary search over R.
+
+
+Vacation Planning
+
+The bounds for this problem are pretty small, so we can run floyd-warshall on the adjacency matrix for all
+the nodes. Then, for each query, we just minimize the value of dp[a_i][h] + dp[h][b_i] where h is any of 
+the hubs. 
+
+
+A Coin Game
+
+Here we use a dynamic programming solution. Our state is DP[i][j] = max score achieved using coins with 
+index <= i having the opportunity to pick up <= j coins. Their are two transitions we need to consider: 
+
+If i + j >= n: DP[i][j] = sigma where sigma is the sum of elements [i,N)
+
+Else DP[i][j] = max(DP[i][j-1], DP[i+j][min(N,j*2)])
+
+Remember to iterate i from N-1 to 0 to easily compute sigma as well as having the necessary DP states 
+precomputed. 
+
+
+Tile Exchanging
+
+This is also a dynamic programming problem although it looks more complicated than it is. Here we use the 
+DP state DP[i][j] = min cost of having total size i with tiles (1...j). The transition is as follows:
+
+DP[i][j] = min ( DP[i-k^2][j-1] + (A_i - k)^2 ) over all k from 0 to 100
+
+There are a total of 10^4 * 10^1 DP states alongside a 10^2 computation for each state, so it passes 
+within the memory constraints
+
+
+Painting the Fence
+
+For this question, we first transform the input into a set of intervals with (left, right) endpoints. Then 
+we turn each of these endpoints into queries of the form (L, coordinate) or (R, coordinate). Next, we sort 
+these queries by ascending coordinate. Finally, we run a sweep line algorithm on the sorted queries, 
+keeping track of the number of “active” coats of paint, adding to the answer everytime we encounter a 
+segment with >= K coats of paint. 
+
+
+Ladice
+
+While this problem doesn’t directly involve DSU, the ideas behind it are very similar. Let us define two 
+arrays, one, F,  representing whether or not a drawer is filled and another, P, representing the “parent” 
+of a node which will be defined similarly to DSU with the same find operation. An edge here represents 
+that the item in the bucket can essentially be moved to any of its ancestors. Now, the problem can be 
+split up into five cases (representing the five rules of the game). 
+
+If F[A] == False, union(A, B) 
+
+Else ff F[B] == False, union(B, A)
+
+Else if F[find(A)] == False, union(A, B)
+
+Else if F[find(B)] == False, union(B, A)
+
+Where union(X,Y) is defined as P[find(X)] = find(Y). With path compression (but not small to large since 
+order matters) we can reduce the runtime into passing bounds.

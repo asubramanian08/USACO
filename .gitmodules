@@ -4,6 +4,6 @@
 [submodule "Training/StarLeague-Part1"]
 	path = Training/StarLeague-Part1
 	url = https://github.com/asubramanian08/StarLeague-Part1
-[submodule "AlphaStar"]
-	path = AlphaStar
+[submodule "Training/AlphaStar"]
+	path = Training/AlphaStar
 	url = https://github.com/asubramanian08/AlphaStar
