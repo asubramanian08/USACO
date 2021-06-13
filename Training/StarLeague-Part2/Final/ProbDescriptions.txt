@@ -1,0 +1,5 @@
+Overplanting | USACO-S-FEB2012 | Area of union of rectangles. Sweep line or coordinate compression + 2D prefix sum
+Load Balancing | USACO-S-FEB2016 | Two sweep lines
+Symmetry | USACO-G-FEB2012 | Symmetry line of N points, perpendicular bisector.
+
+q3 dad helped find algorithm

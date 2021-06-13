@@ -1,0 +1,30 @@
+KEY IDEA: overlapping subproblem
+
+Use When:
+ - Overlapping subproblem (subtree, prefix/suffix of an array, ...)
+ - Optimal substructure (solution of subproblem helps solve org. prob)
+ - Recursion / memoization -> store partial solution in Data
+ - tabulation -> fill up structure -> 'Bottom up design'
+
+ Ex. Fibonacci numbers
+ Fib(5) = Fib(4) + Fib(3)
+Use DP
+
+Types of DP probs:
+1. decision Problem - 
+2. Optimization Problem
+3. combinatorial
+
+A^p = a (mod p) if p is prime ==> a^(p-1) = 1 (mod p)
+
+In trees:
+    The big Problem is the whole tree
+    The sub problem are the sub trees
+    The base case is no tree / leaf node
+
+For single source shorted path:
+        Problem         |      Algorithm     |      Order     |    Data structure
+-------------------------------------------------------------------------------------
+    Negative weights    |    Bellmon-Ford    |    N^2         |    Vector
+    Positive weights    |    Dijkstra's      |    E lg (V)    |    Priority Queue
+    Unweighted          |    BFS             |    V + E       |    Queue / Deck

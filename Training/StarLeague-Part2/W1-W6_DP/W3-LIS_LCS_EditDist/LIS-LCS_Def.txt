@@ -1,0 +1,4 @@
+LIS: Longest increasing subsequnce
+LCS: Longest common subsequnce
+
+Look at the PDF for answers

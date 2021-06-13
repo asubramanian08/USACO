@@ -1,0 +1,36 @@
+Sleepwalking Cows 2 (Starleague Training Problem)
+
+Farmer John's (FJ) N (1 <= N <= 50,000) cows are sleeping in M (1 <= M <= 1,000,000,000) stalls. Cows and stalls 
+are conveniently numbered  1 ... N and 1 ... M. Stalls are located side by side.
+
+Farmer John knows in which barn each cow is asleep. Some stalls can be empty and some stalls may contain several 
+cows. But the cows start to wander at night and go to other stalls. FJ needs to track the total number of cows 
+in a range of stalls to organize the night feeding. Help FJ to determine if total number of cows in a range of 
+stalls exceeds X in any time when the movements of the cows are known.
+
+INPUT FORMAT
+Line 1: N, M, K and X. K is total number of movements and queries.
+Line 2: N space separated integers x. xi denotes the stall ID where cowi was asleep.
+Line 3 to K+2: For updates 0 a b: cow a moves to stall b from its current stall. For queries 1 a b: Print total 
+number of cows between the stall a and stall b if the sum > X, a and b both are inclusive.
+
+OUTPUT FORMAT
+An integer for each query if the sum > X.
+
+SAMPLE INPUT (file swalking2.in)
+5 10 7 1
+3 5 2 7 10
+1 3 6
+0 2 7
+0 1 1
+1 3 6
+0 2 1
+1 1 2
+1 1 10
+
+SAMPLE OUTPUT (file swalking2.out)
+2
+3
+5
+
+Problem Credits: Osman Ay

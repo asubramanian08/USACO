@@ -1,0 +1,9 @@
+[submodule "Training/StarLeague-Part2"]
+	path = Training/StarLeague-Part2
+	url = https://github.com/asubramanian08/StarLeague-Part2
+[submodule "Training/StarLeague-Part1"]
+	path = Training/StarLeague-Part1
+	url = https://github.com/asubramanian08/StarLeague-Part1
+[submodule "AlphaStar"]
+	path = AlphaStar
+	url = https://github.com/asubramanian08/AlphaStar

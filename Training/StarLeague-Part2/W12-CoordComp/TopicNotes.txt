@@ -1,0 +1,1 @@
+Can often be used instead of sweep line

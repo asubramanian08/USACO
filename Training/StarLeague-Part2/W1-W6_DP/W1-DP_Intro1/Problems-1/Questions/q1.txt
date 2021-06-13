@@ -1,0 +1,26 @@
+Milk Collecting (Starleague Training Problem)
+
+
+Farmer John collects the milk he gets from his N (1 <= N <= 1000) cows into a container. The capacity of the 
+container is L (1 <= C <= 10,000) litters.
+
+The amount of milk given by each cow is different. In how many different ways can FJ fill the container by 
+pouring all the milk he takes from a cow into the container?
+
+INPUT FORMAT
+Line 1: N, C
+Line 2 ... N+1: Each line describes milk product of a cow in litters with an integer in the range 1 ... L.
+
+OUTPUT FORMAT
+A single integer denoting number of ways FJ can obtain L litters of milk. Print the result modulo 10^9 + 7.
+
+SAMPLE INPUT (file milkcollect.in)
+3 8
+3
+2
+5
+
+SAMPLE OUTPUT (file milkcollect.out)
+6
+
+Problem Credits: Osman Ay

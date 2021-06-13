@@ -1,0 +1,38 @@
+Hay Bale Tower (Starleague Training Problem)
+
+Although stacking hay bales is a routine job on the farm, it is a difficult task. Because the height, depth and 
+width of hay bales can be different.
+
+Farmer John wants to make a tallest hay bale tower, so that his cows cannot mooch any of the hay bales. FJ start 
+with a single hay bale and place next hay bale on top of the previous one. At the end, a tower is formed with one 
+hay bale in each level.
+
+In order for the tower to be as robust as possible, he can only place a hay bale on top of another one if the 
+dimensions of the 2-D base of the lower hay bale are each strictly larger than those of the 2-D base of the 
+higher one. FJ can rotate a hay bale so that any side functions as its base and there are an infinite number of 
+hay bale of each size. 
+
+Help FJ calculate height of the tallest tower.
+
+INPUT FORMAT
+Line 1: An integer N (1 <= N <= 1000) denoting  number of different size of hay bales.
+Line 2..N+1: Three integers wi, di, hi (1 <= wi, di, hi <= 1000) as width height and depth of a hay bale. 
+
+OUTPUT FORMAT 
+A single integer that is the height of the tallest tower.
+
+SAMPLE INPUT (file baletower.in)
+4 
+4 6 7 
+1 2 3  
+4 5 6 
+10 12 32 
+
+SAMPLE OUTPUT (file baletower.out)
+60 
+ 
+OUTPUT DETAILS
+The height 60 is obtained by boxes {wi, di, hi}: {1, 2, 3}, {2, 3, 1}, {4, 5, 6}, {5, 6, 4}, {6, 7, 4}, 
+{10, 12, 32}, {12, 32, 10} 
+
+Problem Credits: Osman Ay

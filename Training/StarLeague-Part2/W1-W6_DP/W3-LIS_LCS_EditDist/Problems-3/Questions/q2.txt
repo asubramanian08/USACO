@@ -1,0 +1,39 @@
+Is Bigger Smarter (Starleague Training Problem)
+
+Some people think that the bigger a cow is, the smarter it is. To disprove this opinion, Bessie the cow collected 
+the weight and IQ data of N (1 <= N <= 100,000) cows to make a possible longest list of cows where the weights 
+are increasing, but the IQ's are decreasing.
+
+Help Bessie to calculate size of such a list of cows.
+
+INPUT FORMAT
+Line 1: N
+Line 2 ... N+1: Two integers w and q (1 <= w, q <= 1000) describing the weight and IQ of a cow.
+
+OUTPUT FORMAT
+An integer denoting the length of the longest sequence of cows where the size is strictly increasing and the IQ 
+is strictly decreasing.
+
+SAMPLE INPUT (file smarter.in)
+12
+5 4
+7 1
+6 3
+6 1
+2 4
+2 6
+2 1
+8 2
+5 10
+7 1
+6 1
+10 1
+
+SAMPLE OUTPUT (file smarter.in)
+5
+
+OUTPUT DETAILS
+(2 6) (5 4) (6 3) (8 2) (10 1)
+
+Source of the Problem: UVA online Judge. Problem ID: 10131.
+Problem Credits: Osman Ay

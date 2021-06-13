@@ -1,0 +1,43 @@
+Christmas Tree (Starleague Training Problem)
+
+Farmer John and the cows made a Christmas tree and decorated it with N (1 <= N <= 100,000) light bulbs 
+conveniently numbered 1 ... N. They have some difficulty in turning on all the bulbs as the switch system is 
+complex. 
+
+There is a light bulb at the very top of the tree. This bulb is connected to some other bulbs at the lower level. 
+Likewise, each bulb is connected to some other bulbs at a lower level or that connection ends in that bulb. This 
+way all the bulbs are connected to each other. One bulb directly connected at most three other bulbs and there is 
+always only a unique path between any two bulbs.
+
+The cows attached a switch to each light bulb to turn the bulbs on and off. However, this switch does not only 
+toggle the bulb to which it is connected, but also the other bulbs to which that bulb is directly connected.
+
+Cows have already used some switches and now some of the bulbs are on. 
+
+Help cows calculate at least how many times they should use switches to turn on all the bulbs?
+
+INPUT FORMAT
+Line 1: N
+Line 2: Space separated N binary integers representing the initial states of the bulbs starting from the first 
+node. 0 means the corresponding bulb is off, 1 means on.
+Line 3 ... N+1: Each line describes a pair of bulbs with two integers ai and bi (1 <= ai, bi <= N and ai != bi), 
+indicating that bulbs ai and bi are directly connected.
+
+OUTPUT FORMAT
+Print minimum number of switch operations to turn on all the bulbs. If it is not possible, print "Impossible".
+
+SAMPLE INPUT (file christmas.in)
+5
+0 0 1 0 0
+1 2
+1 3
+3 4
+5 3
+
+SAMPLE OUTPUT (file christmas.out)
+3
+
+OUTPUT DETAILS
+Cows should press the switches 2, 4 and 5.
+
+Problem Credits: Osman Ay

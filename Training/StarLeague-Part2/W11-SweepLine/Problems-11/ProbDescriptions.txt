@@ -1,0 +1,4 @@
+City Horizon | USACO-S-APR2007 | Variation of the Sky Line problem
+Splitting the Field | USACO-G-OPEN2016 | Disjoint rectangles, sweep Line, STL set
+Hill Walk | USACO-G-MAR2013 | Disjoint line segments, sweep line
+Cow Curling | USACO-G-JAN2014 | Convex hull + counting point inside a convex polygon

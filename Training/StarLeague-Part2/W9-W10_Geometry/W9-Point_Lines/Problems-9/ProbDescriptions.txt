@@ -1,0 +1,4 @@
+Sum of Manhattan Distances | STP | DP on X and Y coordinates separately
+Closest Pair Of Points | STP | Divine and conquer or Sorting + BF with optimization
+Banner | USACO-S-NOV2010 | Lattice points on line segments
+Regions | STP | Position of a point relative to a line

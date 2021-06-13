@@ -1,0 +1,7 @@
+MooTube | USACO-G-JAN2018 | DSU on a tree
+Delegation | USACO-G-FEB2020 | DP on Tree
+Milk Visits | USACO-G-DEC2019 | DFS + Stack + Ancestor-descendant relationships
+Cow Land | USACO-G-FEB2019 | XOR, Euler Tour on a tree, LCA, Fenwick Tree.
+
+Question 2 I read from usaco solutions
+Question 3 glanced at the alpha star jamboard

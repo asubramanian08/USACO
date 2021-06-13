@@ -1,0 +1,32 @@
+Grazing (Starleague Training Problem)
+
+Farmer John's pasture is in the shape of an NxN (1 <= N <= 1000) grid of fields. Field i contains a grass types 
+with the tastiness value ti (-100 <= ti <= 100).  
+
+Cows start grazing from the field at the upper-left corner of the pasture and exit the pasture from the fields at 
+the bottom-right corner. They can only traverse down, right and diagonally lower-right cell from their current 
+position. They taste grass in every field they visit.
+
+Help cow to find out maximum total tastiness value they can make when they leave the pasture.
+
+INPUT FORMAT
+Line 1: N.
+Lines 2..1+N: Each line contains N integers representing one row of the pasture.
+
+OUTPUT FORMAT
+An integer denoting maximum sum of tastiness values of a path from starting to the ending.
+
+Problem Credits: Osman Ay
+
+SAMPLE INPUT (file grazing.in)
+4
+4 0 3 0
+-5 5 -3 -2
+1 1 -2 4
+3 1 -3 -5
+
+SAMPLE OUTPUT
+7
+
+OUTPUT DETAILS
+look at q2.jpg

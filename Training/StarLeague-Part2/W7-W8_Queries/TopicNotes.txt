@@ -1,0 +1,21 @@
+Offline: not changing
+Online: changing
+
+Online/Offline solution methods:
+in Range queries notes
+
+Offline:
+don't have to answer in given order
+
+Tree alg.s:
+ - DFS
+ - BFS
+ - Euler Tour
+ - LCA (Least Common Ancestor)
+ - Ancestor-Descendent relationship
+ - Sparse Table
+ - Mo's Algorithm
+ - SQRT decomposition
+ - Fenwick Tree (BIT)
+ - DSU
+ - (Platinum) Heavy-Light decomposition (HLD) + segment tree

@@ -1,0 +1,42 @@
+Partitioning the Farm 1 (Starleague Training Problem)
+
+Farmer John's N barns (3 ≤ N ≤ 50,000) are all located at distinct positions in his two-dimensional field. Barns 
+are conveniently numbered from 1 to N. There are Ci (1 <= Ci < 100) cows in barn i.
+
+All barns are surrounded by a rectangular fence. Farmer John has decided to build one horizontal and one vertical 
+fence to separate the barns from each other. New fences should go across the entire farm and cannot go through 
+barns. After building new two fences the farm will be partition into four rectangular regions.
+
+Help FJ to count number of cows in each region for Q (1 <= Q <= 30,000) different queries. Each query describes 
+two new fences.
+
+INPUT FORMAT
+Line 1: Two single integers N and Q. 
+Line 2 .. N+1: Three space separated integers xi, yi and ci ( 1 <= xi, yi <= 10^9) specifying the location of a 
+barn and number of cows in that barn respectively. 
+Line N+2 ... N + Q - 1: Two integers xi and yi ( 1 <= xi, yi <= 10^9) specifying position of the vertical and the 
+horizontal fences.
+
+OUTPUT FORMAT
+Line 1 .. Q: Line i answers query i with space separated four integers A, B, C, D: A is the number of cows in the 
+left-bottom rectangle, B is the number of cows in the right-bottom rectangle, C is the number of cows in upper-
+right rectangle and D is the number of cows in the upper-left rectangle.
+
+SAMPLE INPUT (file: partition.in)
+6 3
+3 2 3
+14 2 2
+14 5 5
+11 5 1
+5 9 6
+11 12 4
+13 8
+7 3
+16 11
+
+SAMPLE OUTPUT (file: partition.out)
+4 7 0 10
+3 2 10 6
+17 0 0 4
+
+Problem Credits: Osman Ay

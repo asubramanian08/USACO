@@ -1,0 +1,27 @@
+Grazing Area (Starleague Training Problem)
+Farmer John's farm is divided into an N x M unit square grid of pastures (1 <=N, M <= 10^6). K (0 <= K <= 1000) 
+of the horizontal or vertical strip of pastures contain rocks. Cows cannot graze in a rocky pasture and cannot 
+pass through it. 
+
+Every morning cows start grazing in the first grid pasture (1, 1). What is the total grazing area for the cows 
+in the farm? Of course, the cows only move horizontally or vertically on the X or Y axis, they never go 
+diagonally.
+
+INPUT FORMAT
+Line 1: N, M and K
+Line 2 to K+1: Four integers, x1, y1, x2, y2 (x1 <= x2 and y1 <= y2): Coordinates of the two end pastures of a 
+rocky strip of pastures.
+
+OUTPUT FORMAT 
+Number of pastures cows can graze.
+
+SAMPLE INPUT (file grazing.in)
+9 9 3
+4 6 9 6
+6 3 6 7
+5 4 9 4
+
+SAMPLE OUTPUT (file grazing.out)
+64
+
+Problem Credits: Osman Ay

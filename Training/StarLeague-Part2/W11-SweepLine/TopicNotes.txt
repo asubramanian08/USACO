@@ -1,0 +1,3 @@
+Sweep Line vocab:
+Event point -> jump from one to the next
+Convex hull -> sort points by angles
