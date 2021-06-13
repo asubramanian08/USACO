@@ -1,6 +1,0 @@
-[submodule "Training/AlphaStar"]
-	path = Training/AlphaStar
-	url = https://github.com/asubramanian08/AlphaStar
-[submodule "Training/StarLeague"]
-	path = Training/StarLeague
-	url = https://github.com/asubramanian08/StarLeague
