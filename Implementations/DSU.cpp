@@ -50,10 +50,7 @@ void DSU::connect(int n1, int n2)
         sz[i] += sz[j];
     }
 }
-int DSU::numConns(int idx)
-{
-    return sz[root(idx)];
-}
+int DSU::numConns(int idx) { return sz[root(idx)]; }
 DSU::~DSU()
 {
     delete[] id;

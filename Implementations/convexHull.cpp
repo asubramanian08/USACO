@@ -1,3 +1,21 @@
+//starleague week 11 q4
+
+int orient(point &p1, point &p2, point &p3)
+{
+    ll val = (ll)(p2.y - p1.y) * (ll)(p3.x - p2.x) -
+             (ll)(p2.x - p1.x) * (ll)(p3.y - p2.y);
+
+    if (val == 0)
+        return 0;
+    return (val > 0) ? -1 : 1;
+}
+bool cmpAng(point &p1, point &p2)
+{
+    int o = orient(p0, p1, p2);
+    if (o == 0)
+        return sqr_dist(p0, p1) < sqr_dist(p0, p2);
+    return o > 0;
+}
 vector<point> convexHull(int numPoints, point *points)
 {
     //sort array (by the angle from the smallest yPoint)
