@@ -1,3 +1,0 @@
-Fruit Feast	| USACO-G-DEC2015 | Knapsack
-Barn Painting | USACO-G-DEC2017 | DP on a Tree
-Taming the Herd	| USACO-G-FEB2018 | DP, 3D table filling

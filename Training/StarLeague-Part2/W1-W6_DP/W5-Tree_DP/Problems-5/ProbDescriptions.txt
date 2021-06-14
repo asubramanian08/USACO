@@ -1,6 +1,0 @@
-K-leaf Tree | STP
-Christmas Tree | STP
-Cow Pedigrees | USACO Training Problem 2.3
-Directory Traversal | USACO-G-FEB2018
-
-Q3 debugged with dad made it work

@@ -1,5 +1,0 @@
-Todays Problems:
-Hay Bale Tower | STP | LIS Box Stacking Problem
-Is Bigger Smarter STP | LIS of pairs
-Cow Jog | USACO-G-DEC2014 | LIS in a reverse array
-New Cow List | STP | Edit Distance

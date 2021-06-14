@@ -1,6 +1,0 @@
-Electric Fence | USACO Training Problem 3.4 | Pick's Theorem
-Building A Fence | USACO-G-OCT2008 | Forming quadrilaterals
-Crazy Fences | USACO-S-DEC2012 | Point location
-Partitioning the Farm 1 | STP | Offline 2D range sum queries
-
-q3 - dad spotted me not looking at cows outside polygon

@@ -1,6 +1,0 @@
-Sleepwalking Cows 2 | STP | Fenwick Tree with mapping
-Square Overlap | USACO-S-JAN2013 | Sweep line or coordinate compression + 2D prefix sum
-Delivery Route | USACO-S-JAN2012 | Construct graph + Dijkstra or Coordinate Comp. + BFS
-Grazing Area | STP | Coordinate Compression + DFS
-
-q3 and q4 he showed in WB notes

@@ -1,6 +1,0 @@
-Cow Cash | USACO-G-OCT2007 | Coin Change (Unbounded Subset Sum)
-Balanced Cow Subsets | USACO-G-OPEN2012 | Meet in the Middle
-Video Game Troubles	| USACO-G-DEC2009 | Knapsack
-Exercise | USACO-G-OPEN2020 | Knapsack + Number Theory
-
-Questions 2 and 4 I had to look at

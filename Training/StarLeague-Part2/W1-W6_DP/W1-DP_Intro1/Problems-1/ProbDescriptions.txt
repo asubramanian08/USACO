@@ -1,5 +1,0 @@
-4 problems: (STP = Starleague Training Problem)
-1. Milk Collecting | STP | Coin Change Problem
-2. Grazing | STP | Maximum path sum in a grid
-3. 248 | USACO-G-OPEN2016 | Chain Matrix Multiplication
-4. Sister Sharing | STP | DP O(N*N)

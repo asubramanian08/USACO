@@ -1,7 +1,0 @@
-In the whiteboard notes.
-1 is already discussed in PDF
-
-1. Teamwork | USACO-G-DEC2018
-2. Cow Tower | STP
-3. Fence Painting | STP
-4. Why Did the Cow Cross the Road II | USACO-G-FEB2017

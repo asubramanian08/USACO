@@ -1,6 +1,0 @@
-Cow Navigation | USACO-G-JAN2017 | Multi-dimensional BFS
-Lilypad Pond | USACO-G-FEB2007 | BFS with Counting
-Pie for a Pie | USACO-G-DEC2017 | Multi source BFS with Binary Search
-Lasers and Mirrors | USACO-G-DEC2016 | 0-1 BFS with Split Vertex
-
-q2 - he drew solution (week 8 whiteboard notes)
