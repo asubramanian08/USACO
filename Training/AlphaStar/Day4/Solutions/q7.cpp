@@ -1,1 +1,0 @@
-//NA try looking at general notes
