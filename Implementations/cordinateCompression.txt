@@ -3,4 +3,4 @@ This can be tricky
  - B-search vector
  - distance between points
 
-Star league week 12
+Star league Part 2 week 12

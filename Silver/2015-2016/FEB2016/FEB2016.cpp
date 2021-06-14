@@ -89,7 +89,7 @@ void q1(const char *fin, const char *fout)
     fclose(fp);
 }
 
-//also in star league final q2
+//also in star league Part 2 final q2
 struct point
 {
     unsigned int x;

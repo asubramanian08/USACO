@@ -1,4 +1,4 @@
-//look at star league week 9 q3
+//look at star league Part 2 week 9 q3
 int GCD(int num1, int num2)
 {
     int temp;
