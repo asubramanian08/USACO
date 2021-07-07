@@ -1,4 +1,5 @@
 //DSU or union-find
+//also look at Starleague Part 1 lesson 3, dedicated to DSU
 class DSU
 {
 private:
@@ -11,7 +12,7 @@ public:
     int root(int idx);
     bool is_connected(int n1, int n2);
     void connect(int n1, int n2);
-    int numConns(int idx);
+    int compSize(int idx);
     ~DSU();
 };
 DSU::DSU(int n_ele)
@@ -50,7 +51,7 @@ void DSU::connect(int n1, int n2)
         sz[i] += sz[j];
     }
 }
-int DSU::numConns(int idx) { return sz[root(idx)]; }
+int DSU::compSize(int idx) { return sz[root(idx)]; }
 DSU::~DSU()
 {
     delete[] id;

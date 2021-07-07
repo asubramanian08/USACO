@@ -1,3 +1,5 @@
+//look at starleague part 2 lesson 4 dedicated to BIT
+
 //BIT or fenwick tree
 class BIT
 {
