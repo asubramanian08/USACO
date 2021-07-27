@@ -1,5 +1,5 @@
 {
-	"files.associations": {
+    "files.associations": {
         "*.java": "java",
         "algorithm": "cpp",
         "array": "cpp",
@@ -29,9 +29,10 @@
         "istream": "cpp",
         "unordered_set": "cpp",
         "__bit_reference": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "type_traits": "cpp"
     },
-	"editor.formatOnPaste": true,
-	"editor.formatOnSave": true,
-	"editor.formatOnType": true
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
 }
