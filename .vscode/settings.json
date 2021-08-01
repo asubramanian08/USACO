@@ -30,7 +30,10 @@
         "unordered_set": "cpp",
         "__bit_reference": "cpp",
         "ios": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "__mutex_base": "cpp",
+        "__split_buffer": "cpp",
+        "tuple": "cpp"
     },
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
