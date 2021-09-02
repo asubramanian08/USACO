@@ -1,1 +1,1 @@
-alpha star day 5 q5
+AlphaStar-GoldBooster day 5 q5

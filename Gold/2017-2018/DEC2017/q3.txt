@@ -1,2 +1,2 @@
-alpha star day 1 q4
+AlphaStar-GoldBooster day 1 q4
 Starleague Part 1 lesson 2.2 q2
