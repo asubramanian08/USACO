@@ -1,1 +1,2 @@
 AlphaStar-GoldBooster day 5 q7
+AlphaStar-PlatinumA week 1 q1

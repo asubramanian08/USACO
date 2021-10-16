@@ -14,3 +14,10 @@ int orient(point &p1, point &p2, point &p3)
         return 0;
     return (val > 0) ? -1 : 1;
 }
+
+using pll = pair<long long, long long>;
+long long orient(pll p1, pll p2, pll p3)
+{
+    return (p2.first - p1.first) * (p3.second - p1.second) -
+           (p2.second - p1.second) * (p3.first - p1.first);
+}

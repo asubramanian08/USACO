@@ -1,3 +1,4 @@
+// Also in AlphaStar-PlatinumA week 4 q3
 // Start: 11:00
 // Think: 11:21,
 // Write:
@@ -8,7 +9,7 @@
  * Might sort by angle to the circle or the tangent
  * Find the 2 ranges and find what isn't there */
 
-//After looking at sol: 9:17-11:17 (storing what is wrapped problems)
+// After looking at sol: 9:17-11:17 (storing what is wrapped problems)
 #include <iostream>
 #include <cmath>
 #include <algorithm>
@@ -27,7 +28,7 @@ double fixRange(double val)
 
 int main(void)
 {
-    //read
+    // read
 #ifndef HOME
     freopen("sight.in", "r", stdin);
     freopen("sight.out", "w", stdout);
@@ -45,7 +46,7 @@ int main(void)
         view[i] = make_pair(fixRange(alpha - delta), fixRange(alpha + delta));
     }
 
-    //make the evenetpoints + set
+    // make the evenetpoints + set
     int *events = new int[numCows * 2];
     for (int i = 0; i < numCows * 2; i++)
         events[i] = i;
@@ -53,13 +54,12 @@ int main(void)
          {
              double pos1 = e1 < numCows ? view[e1].first : view[e1 - numCows].second;
              double pos2 = e2 < numCows ? view[e2].first : view[e2 - numCows].second;
-             return pos1 < pos2;
-         });
+             return pos1 < pos2; });
     set<int> on;
 
-    //run though, fake then real
+    // run though, fake then real
     int ans = 0;
-    for (int run = 0; run < 2; run++) //first to make sure back things are on
+    for (int run = 0; run < 2; run++) // first to make sure back things are on
         for (int i = 0; i < numCows * 2; i++)
         {
             if (events[i] < numCows && run == 1)
@@ -70,7 +70,7 @@ int main(void)
                 on.erase(events[i] - numCows);
         }
 
-    //print and delete
+    // print and delete
     cout << ans << endl;
     delete[] view;
     delete[] events;

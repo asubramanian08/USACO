@@ -1,15 +1,16 @@
+// Also in AlphaStar-PlatinumA week 2 q2
 // Start: 11:21
 // Think: 12:16,
 // Write:
 // Debug:
-//After looking at sol: 2:28-3:18
+// After looking at sol: 2:28-3:18
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
 int main(void)
 {
-    //read
+    // read
 #ifndef HOME
     freopen("nochange.in", "r", stdin);
     freopen("nochange.out", "w", stdout);
@@ -28,7 +29,7 @@ int main(void)
         last = prefixPerch[i];
     }
 
-    //fill in the DP
+    // fill in the DP
     int *DP = new int[1 << numCoins];
     fill(DP, DP + (1 << numCoins), 0);
     long long ans = -1, rem;
@@ -49,7 +50,7 @@ int main(void)
             ans = max(ans, rem);
     }
 
-    //print and delete
+    // print and delete
     cout << ans << endl;
     delete[] coins;
     delete[] prefixPerch;

@@ -7,3 +7,6 @@
 [submodule "Training/StarLeague-Part2"]
 	path = Training/StarLeague-Part2
 	url = https://github.com/asubramanian08/StarLeague-Part2
+[submodule "Training/AlphaStar-PlatinumA"]
+	path = Training/AlphaStar-PlatinumA
+	url = https://github.com/asubramanian08/AlphaStar-PlatinumA.git
