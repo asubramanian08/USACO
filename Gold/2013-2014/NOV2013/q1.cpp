@@ -4,13 +4,14 @@
 // Debug: 11:00 -> 4/11
 /**After look at solution (same algo) 1:18-1:21
  * Look at the code below to see the problem */
+// Also in AlphaStar-PlatinumA week 7 q3
 #include <iostream>
 #include <algorithm>
 using namespace std;
 
 int main(void)
 {
-    //read
+    // read
 #ifndef HOME
     freopen("empty.in", "r", stdin);
     freopen("empty.out", "w", stdout);
@@ -19,7 +20,7 @@ int main(void)
     cin >> numStalls >> lines;
     int *prefCount = new int[numStalls];
     fill(prefCount, prefCount + numStalls, 0);
-    long long numCows, times, mult, add; //I changed from int to long long
+    long long numCows, times, mult, add; // I changed from int to long long
     for (int i = 0; i < lines; i++)
     {
         cin >> numCows >> times >> mult >> add;
@@ -27,7 +28,7 @@ int main(void)
             prefCount[(j * mult + add) % numStalls] += numCows;
     }
 
-    //loop through and find the first open
+    // loop through and find the first open
     int left = 0;
     for (int i = 0; i < numStalls; i++)
         if (left || prefCount[i])
