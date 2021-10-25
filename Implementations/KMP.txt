@@ -1,0 +1,1 @@
+This is a string processing algorithms, look at AlphaStar-PlatinumA week 7 for implementation and use.
