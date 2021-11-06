@@ -33,7 +33,9 @@
         "type_traits": "cpp",
         "__mutex_base": "cpp",
         "__split_buffer": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "__locale": "cpp",
+        "__threading_support": "cpp"
     },
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
