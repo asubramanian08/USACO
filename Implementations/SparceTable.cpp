@@ -25,8 +25,7 @@ int main(void)
         st[i][0].second = st[i][0].first;
     }
 
-    int numCows, log = log2(numCows) + 1;
-    pair<int, int> st[100][100];
+    // fix ST
     for (int j = 1; j < log; j++)
         for (int i = 0; i + (1 << j) <= numCows; i++)
         {
