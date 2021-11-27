@@ -1,5 +1,5 @@
-//DSU or union-find
-//also look at Starleague Part 1 lesson 3, dedicated to DSU
+// DSU or union-find
+// also look at Starleague Part 1 lesson 3, dedicated to DSU
 class DSU
 {
 private:
@@ -8,7 +8,7 @@ private:
 
 public:
     DSU(int n_ele);
-    //find its first parent
+    // find its first parent
     int root(int idx);
     bool is_connected(int n1, int n2);
     void connect(int n1, int n2);
