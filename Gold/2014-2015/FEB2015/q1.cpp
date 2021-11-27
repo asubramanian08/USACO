@@ -2,6 +2,7 @@
 // Think: 11:47, 12:23-1:23
 // Write: 1:50
 // Debug: 2:30
+// Also in AlphaStar-PlatinumA week 12 q3
 #include <iostream>
 #include <vector>
 #include <set>
