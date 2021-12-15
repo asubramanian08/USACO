@@ -8,11 +8,11 @@ using namespace std;
 
 int main(void)
 {
-    // read
-    //#ifndef HOME
+// read
+#ifndef HOME
     freopen("angry.in", "r", stdin);
     freopen("angry.out", "w", stdout);
-    //#endif
+#endif
     int numBales;
     cin >> numBales;
     int *bales = new int[numBales];
