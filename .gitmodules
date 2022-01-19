@@ -10,3 +10,6 @@
 [submodule "Training/AlphaStar-PlatinumA"]
 	path = Training/AlphaStar-PlatinumA
 	url = https://github.com/asubramanian08/AlphaStar-PlatinumA.git
+[submodule "training/AlphaStar-PlatinumB"]
+	path = training/AlphaStar-PlatinumB
+	url = https://github.com/asubramanian08/AlphaStar-PlatinumB
