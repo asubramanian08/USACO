@@ -1,5 +1,6 @@
-// DSU or union-find
 // also look at Starleague Part 1 lesson 3, dedicated to DSU
+
+// DSU or union-find
 class DSU
 {
 private:
