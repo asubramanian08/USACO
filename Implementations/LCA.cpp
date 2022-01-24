@@ -1,74 +1,70 @@
 #include <vector>
+#include <cmath>
 using namespace std;
 
-//Least common ancestor -> binary lifting
-#define NP -1
+// Also main lecture in AlphaStar-PlatinumB week 2
+
+// Least common ancestor -> binary lifting
+#define NA -1
 class LCA
 {
 private:
-    int **sparseTBL;
-    int *level_;
-    int numEle, Log;
-    vector<int> *conns_;
-    void initDFS(int node, int parent, int lev);
+    int **sparseTBL, *dpt, length, log;
+    vector<int> *graph;
+    void init(int node, int parent, int lev);
 
 public:
-    LCA(vector<int> *conns__, int n_ele);
+    LCA(vector<int> *g, int len);
     ~LCA();
-    int lca(int node1, int node2);
-    int level(int node);
+    int query(int node1, int node2);
+    int depth(int node);
 };
-void LCA::initDFS(int node, int parent, int lev)
+void LCA::init(int node, int parent, int lev)
 {
-    level_[node] = lev;
+    dpt[node] = lev;
     sparseTBL[node][0] = parent;
-    for (int i = 1; (i <= Log) && (sparseTBL[node][i - 1] != NP); i++)
+    for (int i = 1; (i <= log) && (sparseTBL[node][i - 1] != NA); i++)
         sparseTBL[node][i] = sparseTBL[sparseTBL[node][i - 1]][i - 1];
-
-    for (int i = 0; i < conns_[node].size(); i++)
-        if (conns_[node][i] != parent)
-            initDFS(conns_[node][i], node, lev + 1);
+    for (int i = 0; i < graph[node].size(); i++)
+        if (graph[node][i] != parent)
+            init(graph[node][i], node, lev + 1);
 }
-LCA::LCA(vector<int> *conns__, int n_ele)
+LCA::LCA(vector<int> *g, int len) : graph(g), length(len), log(log2(len))
 {
-    numEle = n_ele;
-    conns_ = conns__;
-    Log = log2(numEle);
-    sparseTBL = new int *[numEle];
-    for (int i = 0; i < numEle; i++)
+    sparseTBL = new int *[length];
+    for (int i = 0; i < length; i++)
     {
-        sparseTBL[i] = new int[Log + 1];
-        for (int j = 0; j <= Log; j++)
-            sparseTBL[i][j] = NP;
+        sparseTBL[i] = new int[log + 1];
+        for (int j = 0; j <= log; j++)
+            sparseTBL[i][j] = NA;
     }
-    level_ = new int[numEle];
-    initDFS(0, NP, 0);
+    dpt = new int[length];
+    init(0, NA, 0);
 }
 LCA::~LCA()
 {
-    for (int i = 0; i < numEle; i++)
+    for (int i = 0; i < length; i++)
         delete[] sparseTBL[i];
     delete[] sparseTBL;
-    delete[] level_;
-    //conns was passed
+    delete[] dpt;
 }
-int LCA::lca(int node1, int node2)
+int LCA::query(int node1, int node2)
 {
-    //fix nodes
-    if (level_[node1] < level_[node2])
+    // fix nodes
+    if (dpt[node1] < dpt[node2])
     {
         int temp = node1;
         node1 = node2;
         node2 = temp;
     }
-    for (int i = Log; i >= 0; i--) //loop though bits
-        if (level_[node1] - (1 << i) >= level_[node2])
+    for (int i = log; i >= 0; i--) // loop though bits
+        if (dpt[node1] - (1 << i) >= dpt[node2])
             node1 = sparseTBL[node1][i];
-    if (node1 == node2) //n2 is ancestor
+    if (node1 == node2) // n2 is ancestor
         return node2;
 
-    //main compute
-    for (int i = Log; i >= 0; i--)
+    // main compute
+    for (int i = log; i >= 0; i--)
         if (sparseTBL[node1][i] != sparseTBL[node2][i])
         {
             node1 = sparseTBL[node1][i];
@@ -76,4 +72,4 @@ int LCA::lca(int node1, int node2)
         }
     return sparseTBL[node1][0];
 }
-int LCA::level(int node) { return level_[node]; }
+int LCA::depth(int node) { return dpt[node]; }
