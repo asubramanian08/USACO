@@ -1,0 +1,11 @@
+The diameter of a tree is the longest path in the tree
+
+Use a DynamicLCA to find the distance
+https://github.com/asubramanian08/USACO/blob/master/Implementations/LCA/DynamicLCA.cpp
+
+Properties:
+1.  There can be multiple diameters
+2.  The longest distance from any node = max of dists from that node to the diameters
+3.  When a new node is added the new diameter contains one of the old diameter nodes
+
+Learn more in the AlphaStar-PlatinumB week 3 "Tree Diameter" lecture
