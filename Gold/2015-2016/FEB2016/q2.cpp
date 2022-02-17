@@ -2,6 +2,7 @@
 // Think: 9:53
 // Write: 10:18
 // Debug: 10:28
+// Also in AlphaStar-PlatinumB week 5 q1
 #include <iostream>
 using namespace std;
 
@@ -12,7 +13,7 @@ long long DP[MAX_ROOM][MAX_DOOR][MAX_ROOM];
 
 int main(void)
 {
-    //read
+    // read
 #ifndef HOME
     freopen("cbarn2.in", "r", stdin);
     freopen("cbarn2.out", "w", stdout);
@@ -23,7 +24,7 @@ int main(void)
     for (int i = 0; i < numRooms; i++)
         cin >> cows[i];
 
-    //run DP 100x works
+    // run DP 100x works
     for (int startPos = 0; startPos < numRooms; startPos++)
         for (int pos = numRooms - 1; pos >= startPos; pos--)
             for (int doors = 1; doors <= numDoors; doors++)
@@ -42,7 +43,7 @@ int main(void)
                     DP[startPos][pos][doors] = cost;
             }
 
-    //print and delete
+    // print and delete
     long long ans = BIG_NUM;
     for (int i = 0; i < numRooms; i++)
         ans = min(ans, DP[i][i][numDoors]);
