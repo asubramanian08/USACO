@@ -36,7 +36,8 @@
         "tuple": "cpp",
         "__locale": "cpp",
         "__threading_support": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "chrono": "cpp"
     },
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
